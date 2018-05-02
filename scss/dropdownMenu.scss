@@ -1,0 +1,87 @@
+@mixin dropdown-menu {
+  /* Foundation Dropdowns */
+  .f-dropdown-menu {
+    position: absolute;
+    list-style: none;
+    margin-left: 0;
+    outline: none;
+    width: 100%;
+    max-height: none;
+    height: auto;
+    background: #FFFFFF;
+    border: solid 1px #cccccc;
+    font-size: 0.77778rem;
+    z-index: 89;
+    margin-top: 2px;
+    > * {
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border: 6px inset transparent;
+      border-bottom: solid #FFFFFF;
+      position: absolute;
+      top: -12px;
+      left: 10px;
+      z-index: 89;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border: 7px inset transparent;
+      border-bottom: solid #cccccc;
+      position: absolute;
+      top: -14px;
+      left: 9px;
+      z-index: 88;
+    }
+    li {
+      font-size: 0.77778rem;
+      cursor: pointer;
+      line-height: 1rem;
+      margin: 0;
+      &:hover {
+        background: #EEEEEE;
+      }
+      &:focus {
+        background: #EEEEEE;
+      }
+      a {
+        display: block;
+        padding: 0.5rem;
+        color: #555555;
+      }
+    }
+    li.radius {
+      border-radius: 3px;
+    }
+  }
+
+  .v-icon-dropdown-menu {
+    li {
+      float: left
+    }
+  }
+
+  .f-dropdown-menu.right {
+    &:before {
+      left: auto;
+      right: 10px;
+    }
+    &:after {
+      left: auto;
+      right: 9px;
+    }
+  }
+
+}

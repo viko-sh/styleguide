@@ -1,0 +1,57 @@
+@import "../color/color-palette";
+////
+/// @group forms
+////
+@mixin tracx-radiobuttons {
+
+  .tracx-radio{
+
+    & + .tracx-radio{
+      margin-left:15px;
+    }
+
+    & + [class*=" clearfix"]:before{
+      margin-top:10px;
+    }
+
+    input[type="radio"]{
+      display:none;
+
+      & + label{
+        cursor:pointer;
+
+        span {
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          position: relative;
+          border: 1px #bdbbbb solid;
+          border-radius: 8px;
+          vertical-align: middle;
+          margin: -2px 6px 0 0;
+
+          & i {
+            display: none
+          }
+        }
+
+        &:hover span{
+          border:1px solid #98999b;
+        }
+      }
+
+      &:checked  + label span i{
+        position: relative;
+        width: 8px;
+        height: 8px;
+        border-radius: 5px;
+        background: #82b551;
+        border: none;
+        display: block;
+        margin: 2.5px auto;
+      }
+    }
+  }
+
+
+}

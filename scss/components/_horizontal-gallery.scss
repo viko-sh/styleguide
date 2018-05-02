@@ -1,0 +1,47 @@
+
+@mixin horizontal-gallery
+{
+  .tx-horizontal-gallery-container
+  {
+    position: relative;
+
+    .tx-horizontal-gallery
+    {
+      overflow: hidden;
+    }
+
+    .tx-hg-click
+    {
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 100%;
+      left: -1.1rem;
+      opacity: 0;
+      transition: opacity .3s;
+
+      &.right
+      {
+        right: -1.9rem;
+        left: auto;
+      }
+
+      &:hover
+      {
+        opacity: 1;
+      }
+
+      i
+      {
+        background-color: white;
+        padding: 13px;
+        box-shadow: 0 0 7px -2px #000;
+        border-radius: 50%;
+        top: 30%;
+        position: absolute;
+      }
+
+    }
+
+  }
+}

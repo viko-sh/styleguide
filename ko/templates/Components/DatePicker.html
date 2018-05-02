@@ -1,0 +1,93 @@
+<div class="row">
+    <h1>Date Picker</h1>
+</div>
+<div class="row margin-top-20">
+    <div class="large-8 columns">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Used In: boost ( Budget.js, Budget.html ), etc.</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row column">
+                    <ko.view-source  class="margin-bottom-15" params="sourceClass: 'datePickerExample'"></ko.view-source>
+
+                    <!-- ko stopBinding: true -->
+                    <div class="datePickerExample hide">
+                       <span class="date-picker background-tracx-white">
+                            <i class="tr-icon-calendar font-size-16 padding-top-12 padding-left-8"></i>
+                            <input type="text" class="text-center short" data-bind="fdatepicker: { date: $data.startDate,
+                            datepickerOptions: {
+                                startDate: $data.minDate,
+                                initialDate: $data.startDate(),
+                                dateFormat: $data.dateFormat,
+                                isUsingMoment:     true
+                             } }" value=""/>
+                        </span>
+                    </div>
+                    <!-- /ko -->
+
+                    <span class="date-picker background-tracx-white">
+                        <i class="tr-icon-calendar icon-font-size-16 padding-top-12 padding-left-8"></i>
+                        <input type="text" class="text-center short" data-bind="fdatepicker: { date: $data.startDate,
+                        datepickerOptions: {
+                            startDate: $data.minDate,
+                            initialDate: $data.startDate(),
+                            dateFormat: $data.dateFormat,
+                            isUsingMoment:     true
+                         } }" value=""/>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--documentations-->
+    <div class="large-4 columns">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Documentations</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row ">
+                    <ol>
+                        <li class="strong">css & knockout binding wrapper for foundation date picker (fdatepicker)</li>
+                        <li>create span wrapper with class 'date-picker' and 'background-tracx-white'</li>
+                        <li>create icon inside the span wrapper 'tr-icon-calendar' with whatever color you want</li>
+                        <li>create input with type text</li>
+                        <li>
+                            data bind fdatepicker, with the following options:
+                            <ul class="margin-left-20" style="list-style-type:circle">
+                                <li><span class="strong">date</span> - current date ( TODAY ) , will be the default when the widget starts </li>
+                                <li>datepickerOptions:
+                                    <ul class="margin-left-20" style="list-style-type:disc">
+                                        <li><span class="strong">startDate</span> - the min date the user can select</li>
+                                        <li><span class="strong">initialDate</span> - the first date the user will see by default ( usually current date )</li>
+                                        <li><span class="strong">isUsingMoment</span> - true/false flag ( if not converting with moment , will use 'convertJSDateToSqlString' function from utils.js </li>
+                                        <li><span class="strong">dateFormat</span> - when using moment change to this format, if no moment is used, will convert using 'convertJSDateToSqlString' function</li>
+                                        <li><span class="strong">changeCallback</span> - once the date is changed, will call this function with the new date ( date format depends on moment usage or not ) </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row ">
+                    <pre class="ko-component-code">
+fdatepicker: { date: $data.startDate,
+                        datepickerOptions: {
+                            startDate: $data.minDate,
+                            initialDate: $data.startDate(),
+                            dateFormat: $data.dateFormat,
+                            isUsingMoment:     true
+                         } }
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

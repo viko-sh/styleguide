@@ -1,0 +1,253 @@
+@import "../color/color-palette";
+@import "../util/customposition";
+@import "../global";
+
+$button-border-radius: 2px;
+$button-default-box-shadow: 0px 0px 1px 0px rgba(0, 122, 155, 1);
+
+@mixin button-disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@mixin button-base {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  border-radius: $button-border-radius;
+  border: $global-border;
+  padding: 8px 15px;
+  //color: lighten($tracx-gray-base, 48);
+
+
+  &.disabled {
+    @include button-disabled;
+  }
+
+  &.btn-block {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  &:hover, &.hover {
+    @include transition(background-color 0.5s ease-out);
+
+    color: darken($tracx-gray-base, 48);
+    outline: none;
+  }
+
+  &:focus, &.focus {
+    border: 1px #999 solid;
+    color: darken($tracx-gray-base, 48);
+    outline: none;
+    box-shadow: $global-shadow;
+  }
+
+  &.selected {
+    background: #d7d7d7;
+    border: 1px #999 solid;
+    color: lighten($tracx-gray-base, 48);
+  }
+
+}
+
+$button-types-list: (
+        default: (
+                color: (
+                        //normal: lighten($tracx-gray-base, 48),
+                        hover: lighten($tracx-gray-base, 36),
+                        focus: lighten($tracx-gray-base, 36),
+                        selected: lighten($tracx-gray-base, 36),
+                        disabled: lighten($tracx-gray-base, 72),
+                ),
+                border: (
+                        normal: 1px lighten($tracx-gray-base, 84) solid,
+                        hover: 1px lighten($tracx-gray-base, 60) solid,
+                        focus: 1px lighten($tracx-gray-base, 60) solid,
+                        selected: 1px lighten($tracx-gray-base, 60) solid,
+                        disabled: 1px lighten($tracx-gray-base, 60) solid,
+                ),
+                border-radius: (
+                ),
+                bg-color: (
+                        normal: $tracx-white,
+                        hover: $tracx-white,
+                        focus: $tracx-white,
+                        selected: lighten($tracx-gray-base, 78),
+                        disabled: lighten($tracx-gray-base, 84),
+                ),
+                box-shadow: (
+                        focus: 0px 0px 3px 1px rgba(81, 82, 84, 0.25)
+                )
+        ),
+        primary: (
+                color: (
+                        normal: $tracx-white,
+                        hover: $tracx-white,
+                        focus: $tracx-white,
+                        selected: $tracx-white,
+                        disabled: $tracx-white,
+                ),
+                border: (
+                        normal: 1px $tracx-blue-base solid,
+                        hover: 1px lighten($tracx-blue-base, 6) solid,
+                        focus: 1px darken($tracx-blue-base, 6) solid,
+                        selected: 1px darken($tracx-blue-base, 12) solid,
+                        disabled: 1px lighten($tracx-blue-base, 36) solid,
+                ),
+                border-radius: (
+                ),
+                bg-color: (
+                        normal: $tracx-blue-base,
+                        hover: lighten($tracx-blue-base, 6),
+                        focus: darken($tracx-blue-base, 6),
+                        selected: darken($tracx-blue-base, 12),
+                        disabled: lighten($tracx-blue-base, 36),
+                ),
+                box-shadow: (
+                        normal: $button-default-box-shadow,
+                        hover: $button-default-box-shadow,
+                        focus: $button-default-box-shadow,
+                        selected: $button-default-box-shadow,
+                        disabled: $button-default-box-shadow,
+                )
+        ),
+        secondary: (
+                color: (
+                        normal: $tracx-white,
+                        hover: $tracx-white,
+                        focus: $tracx-white,
+                        selected: $tracx-white,
+                        disabled: $tracx-white,
+                ),
+                border: (
+                        normal: 1px $tracx-green-base solid,
+                        hover: 1px darken($tracx-green-base, 12) solid,
+                        focus: 1px darken($tracx-green-base, 12) solid,
+                        selected: 1px darken($tracx-green-base, 18) solid,
+                        disabled: 1px lighten($tracx-green-base, 36) solid
+                ),
+                border-radius: (
+                        normal: 3px,
+                        hover: 3px,
+                        focus: 3px,
+                        selected: 3px,
+                        disabled: 3px
+                ),
+                bg-color: (
+                        normal: $tracx-green-base,
+                        hover: darken($tracx-green-base, 12),
+                        focus: darken($tracx-green-base, 12),
+                        selected: darken($tracx-green-base, 18),
+                        disabled: lighten($tracx-green-base, 36),
+                ),
+                box-shadow: (
+                        normal: $button-default-box-shadow,
+                        hover: $button-default-box-shadow,
+                        focus: 0px 0px 2px 0px rgba(0, 122, 155, 1),
+                        selected: $button-default-box-shadow,
+                        disabled: $button-default-box-shadow,
+                )
+        )
+);
+
+$button-sizes-list: (
+        btn-large: (padding: 9px 14px 9px 14px, font-size: 13px),
+        btn-medium: (padding: 8px 12px 8px 12px, font-size: 12px),
+        btn-small: (padding: 7px 10px 6px 10px, font-size: 11px),
+        btn-mini: (padding: 5px 6px 4px 6px, font-size: 10px),
+);
+
+@mixin define-button($button-settings) {
+  background: map-get(map-get($button-settings, 'bg-color'), 'normal');
+  color: map-get(map-get($button-settings, 'color'), 'normal');
+  border: map-get(map-get($button-settings, 'border'), 'normal');
+  box-shadow: map-get(map-get($button-settings, 'box-shadow'), 'normal');
+  border-radius: map-get(map-get($button-settings, 'border-radius'), 'normal');;
+
+  & i{
+    color: map-get(map-get($button-settings, 'color'), 'normal');
+  }
+
+  &:hover, &.hover {
+    background: map-get(map-get($button-settings, 'bg-color'), 'hover');
+    border: map-get(map-get($button-settings, 'border'), 'hover');
+    color: map-get(map-get($button-settings, 'color'), 'hover');
+    box-shadow: map-get(map-get($button-settings, 'box-shadow'), 'hover');
+    border-radius: map-get(map-get($button-settings, 'border-radius'), 'hover');
+  }
+  //&:focus, &.focus {
+  //  background: map-get(map-get($button-settings, 'bg-color'), 'focus');
+  //  border: map-get(map-get($button-settings, 'border'), 'focus');
+  //  color: map-get(map-get($button-settings, 'color'), 'focus');
+  //  box-shadow: map-get(map-get($button-settings, 'box-shadow'), 'focus');
+  //  border-radius: map-get(map-get($button-settings, 'border-radius'), 'focus');
+  //}
+  &.selected {
+    background: map-get(map-get($button-settings, 'bg-color'), 'selected');
+    border: map-get(map-get($button-settings, 'border'), 'selected');
+    color: map-get(map-get($button-settings, 'color'), 'selected');
+    box-shadow: map-get(map-get($button-settings, 'box-shadow'), 'selected');
+    border-radius: map-get(map-get($button-settings, 'border-radius'), 'selected');
+  }
+  &.disabled, &:disabled {
+    background: map-get(map-get($button-settings, 'bg-color'), 'disabled');
+    border: map-get(map-get($button-settings, 'border'), 'disabled');
+    color: map-get(map-get($button-settings, 'color'), 'disabled');
+    box-shadow: map-get(map-get($button-settings, 'box-shadow'), 'disabled');
+    border-radius: map-get(map-get($button-settings, 'border-radius'), 'disabled');
+  }
+}
+
+@mixin tracx-buttons {
+
+  .button {
+    @include button-base;
+    $button-settings: map-get($button-types-list, 'default');
+    @include define-button($button-settings);
+  }
+
+  @each $button-name, $button-settings in $button-types-list {
+    .button.btn-#{$button-name} {
+      @include define-button($button-settings)
+    }
+  }
+
+  @each $btn-size, $btn-attr in $button-sizes-list {
+    .#{$btn-size} {
+      @each $attr, $attr-value in $btn-attr {
+        #{$attr}: #{$attr-value};
+      }
+    }
+  }
+
+  .btn-group {
+    display: block;
+
+    .button {
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    & > .button:first-child {
+      margin-left: 0;
+      border-bottom-left-radius: 2px;
+      border-top-left-radius: 2px;
+    }
+
+    & > .button:last-child {
+      margin-left: 0;
+      border-bottom-right-radius: 2px;
+      border-top-right-radius: 2px;
+    }
+
+    & > .button + .button {
+      margin-left: -5px;
+    }
+
+  }
+
+}

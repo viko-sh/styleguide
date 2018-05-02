@@ -1,0 +1,20 @@
+<div class="row">
+    <h1>Color Palette</h1>
+</div>
+<div class="row margin-top-20">
+    <div class="panel">
+        <div class="nav-bar">
+            <div class="nav-bar-inner"><h6>Social Colors</h6></div>
+        </div>
+        <div class="row well body-fool" data-bind="foreach: { data: social_colors, as: 'color' }">
+            <div class="column large-3 margin-top-10 margin-bottom-5 float-left">
+                <div class="color color-item" data-bind="style: { 'background-color': color }"></div>
+                <code class="margin-top-5 float-left fullWidth" data-bind="text: 'class: network-color-' + network.toLocaleLowerCase()"></code>
+                <code class="margin-top-5 float-left fullWidth" data-bind="text: 'class: bg-network-color-' + network.toLocaleLowerCase()"></code>
+                <code class="margin-top-5 float-left fullWidth" data-bind="text: 'scss: $color-' + network.toLocaleLowerCase()"></code>
+                <code class="margin-top-5 float-left fullWidth" data-bind="text: color"></code>
+            </div>
+        </div>
+    </div>
+</div>
+

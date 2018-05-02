@@ -1,0 +1,23 @@
+<nav>
+    <ul data-bind="foreach: navigation">
+        <li data-bind="css: {'has-sub-menu': hasSubMenu}, click: $parent.toggleMenuItem.bind($parent, $data, $element)">
+            <a class="btn" data-bind="attr: {'href': btnUrl}" >
+                <i data-bind="attr: {'class': moduleIcon }" aria-hidden="true"></i>&nbsp; <span data-bind="text: moduleName"></span>
+                <!-- ko if: hasSubMenu -->
+                <i class="tr-icon-angle-down"></i>
+                <!-- /ko -->
+            </a>
+            <div>
+                <ul>
+                    <!--<li class="sub-menu-headline-collapse" data-bind="text: moduleName"></li>-->
+                    <!-- ko foreach: moduleSubMenu -->
+                    <li>
+                        <a class="btn" data-bind="text: $data, attr: {href: '#' + $parent.moduleUrl+'/'+$data}, click: $parents[1].moduleRedirect.bind($parents[1], $parent, $element)"></a>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <i class="tr-icon-angle-left asideNavCollapse icon-font-size-22 bottom-right margin-right-10" data-bind="click: toggleMenuState"></i>
+</nav>

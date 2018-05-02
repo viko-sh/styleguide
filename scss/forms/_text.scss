@@ -1,0 +1,124 @@
+@import "../color/color-palette";
+
+$tracx-input-default-height: 40px;
+$tracx-input-placeholder-color: lighten($tracx-gray-base, 66) !default;
+$tracx-input-placeholder-color-mozilla: lighten($tracx-gray-base, 66) !default;
+$tracx-input-default-border-color: lighten($tracx-gray-base, 78);
+$tracx-input-default-border: 1px solid lighten($tracx-gray-base, 78);
+$tracx-input-padding:0 8px;
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin placeholder-mozilla {
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+}
+
+
+@mixin tracx-text {
+  // this is used in input with prefix label before it
+  span.prefix {
+    border-right: none;
+    border-color: $tracx-input-default-border;
+    display: block;
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    height: $tracx-input-default-height;
+    line-height: $tracx-input-default-height;
+    font-weight: 500;
+    color: lighten($tracx-gray-base, 54);
+    background: lighten($tracx-gray-base, 84);
+    border-radius: 1px;
+  }
+
+  .prefix-radius.collapse {
+    input {
+
+    }
+  }
+
+  input[type=text], input[type=password] {
+    height: $tracx-input-default-height;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding:$tracx-input-padding;
+    vertical-align: middle;
+    border: $tracx-input-default-border;
+    border-radius: 1px;
+    background-color: $tracx-white;
+    color: lighten($tracx-gray-base, 36);
+
+    &.small{
+      height:27px;
+    }
+
+    &.medium{
+      height:32px;
+    }
+
+    @include placeholder {
+      color: $tracx-input-placeholder-color;
+      opacity: 1;
+    }
+
+    @include placeholder-mozilla {
+      color: $tracx-input-placeholder-color-mozilla;
+      opacity: 1;
+    }
+
+    &:hover {
+      border-color: lighten($tracx-gray-base, 66);
+      outline: none;
+    }
+
+    &:focus {
+      border-color: lighten($tracx-gray-base, 66);
+      box-shadow: 0 0 3px 1px rgba(81, 82, 84, 0.25);
+      outline: none;
+    }
+
+    &:disabled {
+      border-color: lighten($tracx-gray-base, 78);
+      background-color: lighten($tracx-gray-base, 84);
+      cursor: not-allowed;
+    }
+  }
+
+  input[type='search'] {
+    box-sizing: border-box;
+  }
+
+  [type='number'] {
+
+  }
+
+  .input-with-button{
+    display:flex;
+
+    input{
+      border-right:none;
+
+      &:focus, &:hover{
+        box-shadow:none;
+
+        & + button{
+          border-color: lighten($tracx-gray-base, 66);
+        }
+      }
+    }
+    button{
+      border: $tracx-input-default-border;
+      border-left: none;
+      text-align: center;
+      padding: $tracx-input-padding;
+      color:darken($tracx-blue-base, 6);
+    }
+  }
+
+}

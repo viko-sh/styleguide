@@ -1,0 +1,260 @@
+@import '../color/color-palette';
+
+$tracx-select-default-border: 1px solid lighten($tracx-gray-base, 84);
+$tracx-select-default-border-radius: 2px;
+
+@mixin tracx-select {
+  .tr-select-component
+  {
+    div.input-group
+    {
+      position: relative;
+      white-space: nowrap;
+
+      &:hover
+      {
+        input
+        {
+          border-color: lighten($tracx-gray-base, 72);
+        }
+        i.input-down-arrow
+        {
+          color: lighten($tracx-gray-base, 36);
+        }
+      }
+
+      &:focus
+      {
+        input
+        {
+          border-color: lighten($tracx-gray-base, 72);
+          box-shadow: 0 0 3px 1px rgba(50,51,53, 0.25);
+        }
+        i.input-down-arrow
+        {
+          color: lighten($tracx-gray-base, 36);
+        }
+      }
+
+      &.disable
+      {
+        i.input-down-arrow
+        {
+          color: lighten($tracx-gray-base, 78);
+        }
+      }
+
+      input
+      {
+        cursor: pointer;
+        height: 32px;
+        padding: 0 30px 0 8px;
+        text-shadow: -1px 1px 0 $tracx-white;
+        border-radius: $tracx-select-default-border-radius;
+        border: $tracx-select-default-border;
+        user-select:none;
+
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+
+        &:disabled
+        {
+          border-color: lighten($tracx-gray-base, 84);
+          background-color: lighten($tracx-gray-base, 90);
+          color: lighten($tracx-gray-base, 72);;
+        }
+
+        &.hasErrors
+        {
+          border: 1px solid #ff0000 !important;
+        }
+
+        &.small
+        {
+          height: 26px;
+        }
+
+        &.large
+        {
+          height: 40px;
+        }
+      }
+
+      span.validationMessage
+      {
+        position: absolute;
+      }
+
+      i.input-down-arrow
+      {
+        position: absolute;
+        right: 10px;
+        top: 12px;
+      }
+
+      div.select-list-wrapper
+      {
+        border: $tracx-select-default-border;
+        box-shadow: 0 0 3px 1px rgba(81, 82, 84, 0.25);
+        position: absolute;
+        //width: 100%;
+        float: left;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+
+        div.select-actions-bar
+        {
+          border-bottom: $tracx-select-default-border;
+          background: $tracx-white;
+          height: 32px;
+        }
+
+        input.tracx-select-search
+        {
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          padding: 0 30px 0 8px;
+        }
+        i.tr-icon-select-all, i.tr-icon-unselected
+        {
+          right: 10px;
+          top: 7px;
+          position: absolute;
+          color: lighten($tracx-green-base, 6);
+        }
+        i.input-select-clear-search
+        {
+          top: 10px;
+          position: absolute;
+        }
+        ul
+        {
+          min-width: 160px;
+          width: 100%;
+          max-height: 312px;
+          overflow-y: auto;
+          overflow-x: hidden;
+          background-color: $tracx-white;
+          border: none;
+          padding: 8px 0;
+          text-align: left;
+          list-style: none;
+
+          top: 100%;
+          left: 0;
+
+          li {
+            min-height: 32px;
+            border-top: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+            background-color: $tracx-white;
+            color: lighten($tracx-gray-base, 48);
+            padding: 0 8px;
+            width: 100%;
+
+            &.category
+            {
+              span.tracx-checkbox-icon
+              {
+                position: relative;
+                border: none;
+                i
+                {
+                  display: inline-block;
+                  top: 0;
+                  right: 0;
+                  font-size: 18px;
+                  height: 18px;
+                  line-height: 18px;
+                }
+              }
+            }
+
+            &.line-spacer
+            {
+              min-height: 0;
+              padding: 0;
+              border-bottom: 1px solid lighten($tracx-gray-base, 84);
+              &:hover {
+                border-top: none;
+                background-color: $tracx-white;
+                border-radius: 0;
+                border-top: 1px solid transparent;
+              }
+            }
+
+            span.wrapText {
+              white-space: pre-wrap;
+            }
+            label
+            {
+              min-height: 32px;
+              position: relative;
+              position: relative;
+            }
+            p.tracx-checkbox-text
+            {
+              width: calc(100% - 32px);
+              white-space: normal;
+            }
+            &.selected {
+              background-color: lighten($tracx-gray-base, 90);
+              color: lighten($tracx-gray-base, 36);
+              border-radius: $tracx-select-default-border-radius;
+            }
+
+            &:hover, &:focus {
+              border-top: 1px solid lighten($tracx-gray-base, 84);
+              border-bottom: 1px solid lighten($tracx-gray-base, 84);
+              background-color: lighten($tracx-gray-base, 90);
+              color: lighten($tracx-gray-base, 18);
+              border-radius: $tracx-select-default-border-radius;
+              cursor: pointer;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+    &.large
+    {
+      div.input-group
+      {
+        input
+        {
+          height: 40px;
+        }
+        i.input-down-arrow
+        {
+          top: 16px;
+        }
+        div.select-list-wrapper div.select-actions-bar
+        {
+          height: 40px;
+        }
+      }
+    }
+
+    &.small
+    {
+      div.input-group
+      {
+        input
+        {
+          height: 26px;
+        }
+        i.input-down-arrow
+        {
+          top: 9px;
+        }
+      }
+    }
+  }
+}

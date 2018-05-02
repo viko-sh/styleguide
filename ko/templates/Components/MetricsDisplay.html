@@ -1,0 +1,211 @@
+<div class="row column">
+    <h1>Metrics Display</h1>
+</div>
+<div class="row margin-top-20">
+
+    <div class="large-8 columns">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Used In: Owned Media, Boost</h6>
+                </div>
+            </div>
+
+            <div class="well body text-center">
+                <h3 class="row text-left">
+                    Single Display
+                </h3>
+                <div class="margin-top-10">
+                    <ko.view-source params="sourceClass: 'MetricDisplayExample'"></ko.view-source>
+                    <!-- ko stopBinding: true -->
+                        <div class="MetricDisplayExample hide">
+                            <ko.metrics--metric-display
+                                    params="metric: { title: 'Amount', value: '15€', trend: -12, chartData: {Object} ChartData }">
+                            </ko.metrics--metric-display>
+                        </div>
+                    <!-- /ko -->
+                </div>
+                <br>
+                <div class="row column margin-top-10">
+                    <ko.metrics--metric-display params="metric: { title: 'Amount', value: '15€', trend: -12, chartData: sampleChartData[0] }"></ko.metrics--metric-display>
+                </div>
+            </div>
+
+            <div class="well body text-center">
+                <h3 class="row text-left">
+                    Multiple Display
+                </h3>
+                <div class="margin-top-10">
+                    <ko.view-source params="sourceClass: 'MetricsDisplayExample'"></ko.view-source>
+                    <!-- ko stopBinding: true -->
+                    <div class="MetricsDisplayExample hide">
+                        <ko.metrics--metrics-display
+                                params="metrics: {ObservableArray} metricsData">
+                        </ko.metrics--metrics-display>
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <div class="row column">
+                    <ko.metrics--metrics-display params="metrics: metricsSampleData"></ko.metrics--metrics-display>
+                </div>
+            </div>
+
+            <div class="well body text-center">
+                <h3 class="row text-left">
+                    Example of Parent Class
+                </h3>
+                <p class="margin-top-10">
+                    The parent class can set the metrics by itself or return the api params and the response handler.
+                    <br>
+                    In case we passed the API and didn't pass any response handler, the MetricDisplay will parse the API response itself.
+                </p>
+                <div class="margin-top-10">
+<pre>
+
+&lt;ko.metrics--metrics-display
+        params="metrics: metrics, apiParams: getApiParams(), responseHandler: responseHandler">
+    &lt;/ko.metrics--metrics-display>
+
+&lt;script>
+
+function MyParentClass() { }
+
+/**
+* @param {Object} metric - Metric data to fetch from the API
+*/
+MyParentClass.prototype.getApiParams = function(metric)
+{
+    return {
+        url: '/api',
+            data: {
+                format: 'json',
+                magic: window.__g_sm,
+                method: 'tracx.updateWidgetData',
+                campaignID: window._campaignID,
+                widgetObj: JSON.stringify({ .... })
+            }
+    }
+}
+
+/**
+* @param {Object} data - response from the API
+*/
+MyParentClass.prototype.responseHandler = function(d)
+{
+    // this -> MetricDisplay !!!
+
+    this.title(d.name)
+    this.trend(d.boya)
+
+}
+
+ko.applyBindings(new MyParentClass(), element)
+
+&lt;/script>
+</pre>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--documentations-->
+    <div class="large-4 columns">
+        <div class="widget">
+
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Documentations</h6>
+                </div>
+            </div>
+
+            <div class="well body text-center">
+                <div class="row ">
+                    <ol>
+                        <li class="strong">css & knockout component</li>
+                        <li>
+                            The display can have values that he will render
+                            <ul style="list-style-type: lower-roman; margin-left: 17px;">
+                                <li>title: string</li>
+                                <li>value: string</li>
+                                <li>trend: int</li>
+                                <li>chartData: Object</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Or it can receive API to fetch the data from:
+                            <ul style="list-style-type: lower-roman; margin-left: 17px;">
+                                <li>
+                                    <strong>apiParams:</strong> Object - the object that will contain all the params needed for the call.
+                                    <br>
+                                    for example:
+                                    <br>
+                                    <pre>
+{
+    url: '/api',
+    data: {
+        format: 'json',
+        magic: window.__g_sm,
+        method: 'tracx.updateWidgetData',
+        campaignID: window._campaignID,
+        widgetObj: JSON.stringify({ .... })
+    }
+}
+                                    </pre>
+                                </li>
+                                <li>
+                                    <strong>responseHandler:</strong> Function -
+                                    <br>
+                                    Since the Metric display only renders its members (title, value, trend),
+                                    <br>
+                                    some API response will return unsuitable Model. Therefore we need to handle the response and set the Model
+                                    <br>
+                                    For example, if our trend is returned from the API as such {boya: 10}, we will set this.trend(data.boya)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>NOTE!</strong>
+                            <br>
+                            You should pass the responseHandler and the apiParams in the params as such
+                            <br>
+<!--<pre style="white-space: pre-wrap;">-->
+<pre>
+&lt;ko.metrics--metrics-display
+   params="metrics: metrics,
+        apiParams: getApiParams(),
+        responseHandler: responseHandler">
+&lt;/ko.metrics--metrics-display>
+</pre>
+                            and but both the getApiParams and the responseHandler will be called in the MetricDisplay context.
+                            <br>
+                            <strong>Namely their `this` will be MetricDisplay</strong>
+                            <br>
+                            So, for example, our responseHandler in the parent will look like this:
+                            <br>
+                            <br>
+<pre>
+/**
+* @param {Object} data - response from the API
+*/
+MyParentClass.prototype.responseHandler = function(d)
+{
+    // this -> MetricDisplay !!!
+
+    this.title(d.name)
+    this.trend(d.boya)
+}
+</pre>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!---->
+
+</div>

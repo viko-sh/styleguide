@@ -1,0 +1,73 @@
+<div class="row column">
+    <h1>Color Palette</h1>
+</div>
+<div class="row">
+    <div class="columns">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">Primary Colors</div>
+            </div>
+            <div class="well body body-fool">
+                <div class="color-item-primary bg-blue hover" data-color-classname="blue" data-color-scss-name="$tracx-blue-base" data-color="#00a8e5" data-bind="click: showColorInfo($element)"></div>
+                <div class="color-item-primary bg-green hover" data-color-classname="green" data-color-scss-name="$tracx-green-base" data-color="#81b650" data-bind="click: showColorInfo($element)"></div>
+                <div class="color-item-primary bg-orange hover" data-color-classname="orange" data-color-scss-name="$tracx-orange-base" data-color="#f36a2e" data-bind="click: showColorInfo($element)"></div>
+                <div class="color-item-primary bg-red hover" data-color-classname="red" data-color-scss-name="$tracx-red-base" data-color="#ff0000" data-bind="click: showColorInfo($element)"></div>
+                <div class="color-item-primary bg-yellow hover" data-color-classname="yellow" data-color-scss-name="$tracx-yellow-base" data-color="#feec96"  data-bind="click: showColorInfo($element)"></div>
+                <div class="color-item-primary bg-gray hover" data-color-classname="gray" data-color-scss-name="$tracx-gray-base" data-color="#101010"  data-bind="click: showColorInfo($element)"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="columns large-6 medium-12 small-12">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner"><h6>Info</h6></div>
+            </div>
+            <div class="well body body-fool as-table">
+                <ul class="no-bullet color-gray-67">
+                    <li><b>HEX6:</b> <span id="hex6"></span></li>
+                    <li><b>RGB:</b><span id="toRgb"></span></li>
+                    <li><b>Percentage Rgb:</b> <span id="toPercentageRgb"></span></li>
+                    <li><b>FILTER:</b> <span id="toFilter"></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner"><h6>Usage Example</h6></div>
+            </div>
+            <div class="well body body-fool as-table">
+                <button id="btnExample" class="button lt-bg-yellow-6">
+                    <i class="tr-icon-calendar"></i>
+                    Button
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="columns large-6 medium-12 small-12">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner"><h6>Lighten background:<code>lt-bg-{color name}-{percentage}</code>, Lighten font color:<code>lt-{color name}-{percentage}</code></h6></div>
+            </div>
+            <div class="well body body-fool as-table lighten-data padding-top-0">
+
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner"><h6>Darken background:<code>dk-bg-{color name}-{percentage}</code>, Darken font color:<code>dk-{color name}-{percentage}</code></h6></div>
+            </div>
+            <div class="well body body-fool as-table darken-data padding-top-0">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+@import 'checkbox';
+@import 'radiobutton';
+@import 'panels';
+@import 'text';
+@import 'basic-select';
+@import 'range-slider';
+@import 'progress-bar';
+@import 'buttons';
+@import 'tables';
+@import 'tracx-select';
+
+@mixin tracx-forms{
+  @include tracx-checkbox;
+  @include tracx-radiobuttons;
+  @include tracx-panel;
+  @include tracx-text; // input / textarea
+  @include tracx-select-basic; // regular html select
+  @include tracx-range-slider; // regular html select
+  @include tracx-progress-bar;
+  @include tracx-tables;
+  @include tracx-select; // tracx knockout component select
+}

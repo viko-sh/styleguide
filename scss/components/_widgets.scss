@@ -1,0 +1,57 @@
+@mixin tracx-widgets{
+
+  .nav-bar{
+    margin-bottom:1px;
+  }
+
+  .nav-bar-inner{
+    padding-left: 14px;
+    border: 1px solid #d5d5d5;
+    position: relative;
+    background: #f7f7f7;
+    background: -moz-linear-gradient(top, #ffffff, #f7f7f7);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f7f7f7));
+    background: -webkit-linear-gradient(top, #ffffff, #f7f7f7);
+    background: -o-linear-gradient(top, #ffffff, #f7f7f7);
+    background: linear-gradient(to bottom, #ffffff, #f7f7f7);
+
+    &:before, &:after{
+      display: table;
+      line-height: 0;
+      content: "";
+    }
+
+    & h6{
+      padding: 9px 15px 9px 0;
+      color: #333333;
+      font-weight: 600;
+    }
+
+    & p{
+      padding:0 15px 9px 0;
+      line-height:16px;
+      max-width:80%;
+      color: #000;
+    }
+  }
+
+
+  .well-smoke {
+    background: #f9f9f9;
+    border: 1px solid #d5d5d5;
+  }
+
+  .separate-border{
+    border-right:1px #d5d5d5 dashed ;
+  }
+
+  [class^="well"], [class*=" well"] {
+    background: #fefefe;
+    border: 1px solid #d5d5d5;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+  }
+}

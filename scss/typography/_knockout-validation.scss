@@ -1,0 +1,40 @@
+@import '../color/color-palette';
+
+$tracx-validation-border: 1px solid $tracx-red-base !important;
+
+@mixin knockout-validation {
+  span.validationMessage {
+    color: $tracx-red-base;
+    margin-top: 5px;
+    display: inline-block;
+  }
+
+  //.prefix-radius {
+  //  span.validationMessage {
+  //    margin-left: -33%;
+  //  }
+  //}
+
+  select {
+    &.hasErrors {
+      border: $tracx-validation-border;
+    }
+  }
+
+  // handle input with errors
+  input {
+    &.hasErrors:not(.ui-autocomplete-input), &.error:not(.ui-autocomplete-input) {
+      border: $tracx-validation-border;
+    }
+  }
+  // autocomplete errors
+  .tags-input {
+    &.hasErrors {
+      border: $tracx-validation-border;
+    }
+  }
+
+  .validation-error{
+    border: $tracx-validation-border;
+  }
+}

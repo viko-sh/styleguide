@@ -1,0 +1,28 @@
+@import '../color/color-palette';
+
+$tracx-select-default-height: 40px;
+$tracx-select-default-border: 1px solid lighten($tracx-gray-base, 78);
+$tracx-select-default-border-radius: 1px;
+
+@mixin tracx-select-basic {
+  select {
+    height: $tracx-select-default-height;
+    padding: 0 8px;
+    border: $tracx-select-default-border;
+    //margin: 0 0 $form-spacing;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: normal;
+    color: lighten($tracx-gray-base, 18);
+    background-color: $tracx-white;
+    border-radius: $tracx-select-default-border-radius;
+    //-webkit-appearance: none;
+    //-moz-appearance: none;
+
+    &.disabled, &[disabled]{
+      opacity:0.5;
+    }
+
+  }
+
+}

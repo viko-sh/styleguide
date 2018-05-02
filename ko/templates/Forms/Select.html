@@ -1,0 +1,484 @@
+<div class="row column">
+    <h1>Tracx Select</h1>
+</div>
+<div class="row margin-top-20 margin-bottom-20">
+    <div class="large-8 columns">
+        <div class="widget panel" style="margin-bottom: 200px;">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Used In: Boost, Boost dashboard, Owned Media overview & trends, etc.</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row padding-bottom-10 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#1</p><br>
+                        <ol>
+                            <li class="strong">single select</li>
+                            <li>optionsValue: 'id' - selected will be the selected option id parameter</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li>with caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.view-source params="sourceClass: 'tracxSelectExample12'"></ko.view-source>
+
+                        <!-- ko stopBinding: true -->
+                            <div class="tracxSelectExample12 hide" >
+                                <ko.select class="selectComponent1" params="closeButtonText: 'buttonText'"></ko.select>
+                            </div>
+                        <!-- /ko -->
+
+
+                        <ko.select class="tr-select small" params="options:        options,
+                                                                 optionsText:    'name',
+                                                                 optionsValue:   'id',
+                                                                 selected:       selectedOption,
+                                                                 multi:          false,
+                                                                 caption:        caption"></ko.select>
+
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#2</p><br>
+                        <ol>
+                            <li class="strong">single select</li>
+                            <li>selected is Object</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li>with caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns" style="width: 220px;float: left;">
+                        <ko.select class="large" params="type:   0,
+                                                    options: options2,
+                                                    optionsText:    'name',
+                                                    selected:       selectedOption2,
+                                                    multi:          false,
+                                                    caption:        caption"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#3</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li>with caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="options:        options2,
+                                                             optionsText:    'name',
+                                                             selected:       selectedOption3,
+                                                             multi:          true,
+                                                             caption:        caption"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#4</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li>No caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="options:        options2,
+                                                             optionsText:    'name',
+                                                             selected:       selectedOption4,
+                                                             multi:          true"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#5 ( with margins ) </p><br>
+                        <ol>
+                            <li class="strong">single select</li>
+                            <li>selected is Object</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li class="strong">No caption: by default first object is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-20 margin-right-20">
+                            <ko.select class="tr-select margin-left-15 margin-right-15"
+                                       params="options:        options2,
+                                                 optionsText:    'name',
+                                                 selected:       selectedOption5,
+                                                 multi:          false"></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#6 ( disabled ) </p><br>
+                        <ol>
+                            <li class="strong">single select</li>
+                            <li>selected is Object</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li class="strong">No caption: by default first object is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-30 margin-right-30">
+                            <ko.select class="tr-select "
+                                       params="options:        options,
+                                                 optionsText:    'name',
+                                                 selected:       selectedOption6,
+                                                 multi:          false,
+                                                 disable:        true"></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#7</p><br>
+                        <ol>
+                            <li class="strong">options are simple strings</li>
+                            <li class="strong">multi select</li>
+                            <li>selected are Strings</li>
+                            <li>No optionsText, display as is.</li>
+                            <li>No caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="options:        options3,
+                                                             selected:       selectedOption7,
+                                                             multi:          true"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#8</p><br>
+                        <ol>
+                            <li class="strong">options are simple strings</li>
+                            <li class="strong">single select</li>
+                            <li>selected is String</li>
+                            <li>No optionsText, display as is.</li>
+                            <li>No caption: by default first object is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-30 margin-right-30">
+                            <ko.select class="tr-select"
+                                       params="options:        options3,
+                                               selected:       selectedOption8,
+                                               multi:          false"></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#9 (Icons)</p><br>
+                        <ol>
+                            <li class="strong">options are objects with icons</li>
+                            <li class="strong">SINGLE select</li>
+                            <li>selected is Object</li>
+                            <li></li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-30 margin-right-30">
+                            <ko.select class="tr-select"
+                                       params="options:        options4,
+                                               optionsText:    'name',
+                                               optionsIcon:    'icon',
+                                               selected:       selectedOption9
+                                               "></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#10 (Search on Objects by key)</p><br>
+                        <ol>
+                            <li class="strong">options are objects with icons</li>
+                            <li class="strong">MULTI select</li>
+                            <li>selected is Object</li>
+                            <li>Search is enabled - filter is done by specific key</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-30 margin-right-30">
+                            <ko.select class="tr-select"
+                                       params="options:        options4,
+                                               optionsText:    'name',
+                                               optionsIcon:    'icon',
+                                               optionsSearch:  'name',
+                                               selected:       selectedOption10,
+                                               multi:          true"></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#11 (Search on Strings list) </p><br>
+                        <ol>
+                            <li class="strong">options are objects with icons</li>
+                            <li class="strong">MULTI select</li>
+                            <li>selected is Object</li>
+                            <li>Search is enabled - filter is by string</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-30 margin-right-30">
+                            <ko.select class="tr-select"
+                                       params="options:        options3,
+                                               optionsSearch:  true,
+                                               selected:       selectedOption11,
+                                               multi:          true"></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#12 ( Confirm )</p><br>
+                        <ol>
+                            <li class="strong">options are objects</li>
+                            <li class="strong">confirm message before change</li>
+                            <li class="strong">SINGLE select</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <div class="margin-left-30 margin-right-30">
+                            <ko.select class="tr-select"
+                                       params="options:        options2,
+                                               selected:       selectedOption12,
+                                               optionsText:    'name',
+                                               optionsConfirm: {
+                                                    confirmBefore: beforeConfirm.bind($data),
+                                                    confirmAfter: afterConfirm.bind($data),
+                                                    confirmOnlyIf: shouldChange.bind($data),
+                                                    confirmMessage: 'Are you sure? this is UNSAFE MAN!! '
+                                               }
+                                               multi:          false"></ko.select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#13</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li>optionsValue: 'id' - selected will be the selected option id parameter</li>
+                            <li>with caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="options:        options2,
+                                                             optionsText:    'name',
+                                                             selected:       selectedOption13,
+                                                             optionsValue:   'id',
+                                                             multi:          true,
+                                                             caption:        caption"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#14 ( Checkbox )</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li></li>
+                            <li>with caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="
+                        options:                options2,
+                        optionsText:            'name',
+                        optionsSearch:          'name',
+                        optionsCheckboxLeft:    true,
+                        selected:               selectedOption14,
+                        multi:                  true,
+                        caption:                caption"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#15 ( Checkbox Right Side )</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li></li>
+                            <li>with caption: by default nothing is selected</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="
+                        optionsCheckboxRight:       true,
+                        options:                    options2,
+                        optionsText:                'name',
+                        optionsSearch:              'name',
+                        selected:                   selectedOption15,
+                        multi:                      true,
+                        caption:                    caption"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#16 ( Categories & checkboxes right )</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>all items has a category</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="
+                        options:                    options5,
+                        optionsText:                'name',
+                        optionsSearch:              'name',
+                        optionsCheckboxRight:       true,
+                        optionsCategory:            'category',
+                        selected:                   selectedOption16,
+                        multi:                      true,
+                        caption:                    caption"></ko.select>
+                    </div>
+                </div>
+
+                <div class="row padding-bottom-10 margin-top-20 border-bottom-dashed">
+                    <div class="large-4 columns">
+                        <p class="font-weight-bold network-color-getglue">Example#17 ( Categories & checkboxes left)</p><br>
+                        <ol>
+                            <li class="strong">multi select</li>
+                            <li>all items has a category</li>
+                            <li>selected are Objects</li>
+                            <li>optionText: 'name' - will display the name parameter in the list</li>
+                            <li>optionsCategory - 'category'</li>
+                            <li>optionsCheckboxLeft - flag is true</li>
+                            <li>multi select is enabled</li>
+                        </ol>
+                    </div>
+                    <div class="large-8 columns">
+                        <ko.select class="tr-select" params="
+                        options:                    options5,
+                        optionsText:                'name',
+                        optionsSearch:              'name',
+                        optionsCheckboxLeft:        true,
+                        optionsCategory:            'category',
+                        optionsCategoryText:        'category',
+                        optionsWidth:               '800px',
+                        selected:                   selectedOption17,
+                        multi:                      true,
+                        caption:                    caption"></ko.select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--documentations-->
+    <div class="large-4 columns">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Documentations</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row ">
+                    <ol>
+                        <li class="strong">css & knockout component</li>
+                        <li>type:
+                            <ol>
+                                <li>0 - default - not necessary </li>
+                                <li>1 - icons list type.</li>
+                                <li>2 - checkbox from the left</li>
+                                <li>3 - checkbox from the right</li>
+                            </ol>
+                        </li>
+                        <li>Sizes: small, large, default is medium.</li>
+                        <li>options - list of objects to select from</li>
+                        <li>optionsText - when given will not display the options, but the options[optionsText] field.</li>
+                        <li>optionsValue - declare which field is filled in the selected, if not given, all the object is "selected"</li>
+                        <li>optionsSearch - when given, a search field is added , this can be a key param to filter by. or true for regular strings.</li>
+                        <li>optionsCategory - when given, the list of items will be groupd by this key
+                            <ol>
+                                <li>category support checkbox</li>
+                                <li>category cant</li>
+                            </ol>
+                        </li>
+                        <li>
+                            selected ( when multi is true )
+                            <ol>
+                                <li>must be observable array</li>
+                                <li>the data will be object if no optionsValue is defined</li>
+                                <li>the data will be the optionsValue field from the selected option</li>
+                            </ol>
+
+                            selected ( when multi is false, or not declared )
+                            <ol>
+                                <li>must be observable</li>
+                                <li>the data will be object if no optionsValue is defined</li>
+                                <li>the data will be the optionsValue field from the selected option</li>
+                            </ol>
+                        </li>
+                        <li>multi - boolean , true/false</li>
+                        <li>caption
+                            <ol>
+                                <li class="strong">null/undefined/not declared - component will select first value by default on multi=false</li>
+                                <li class="strong">multi=true and no caption will result empty select on start</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row ">
+                    <!-- ko stopBinding: true -->
+<pre class="ko-component-code">
+&lt;ko.select class="" params="
+    options:                myOptionsObjects,
+    optionsText:            'text',
+    optionsValue:           'id',
+    optionsSearch:          'name',
+    optionsCategory:        'category',
+    optionsCategoryText:    'category',
+    optionsCheckboxLeft:    true,
+    optionsCheckboxRight:   true,
+    optionsWidth:           '800px',
+    optionsConfirm:  {
+                        confirmBefore: beforeConfirm.bind($data),
+                        confirmAfter: afterConfirm.bind($data),
+                        confirmOnlyIf: shouldChange.bind($data),
+                        confirmMessage: 'Are you sure? this is UNSAFE MAN!! '
+                     },
+    selected:               mySelectedObjectOrObjects,
+    disable:                true,
+    multi:                  true,
+    caption:                null
+">  &lt;/ko.select>
+</pre>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

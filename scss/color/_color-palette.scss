@@ -1,0 +1,151 @@
+$tracx-transparent-base: transparent;
+$tracx-green-base: #81b650;
+$tracx-blue-base: #00a8e5;
+$tracx-orange-base: #f36a2e;
+$tracx-red-base: #ff0000;
+$tracx-yellow-base: #feec96;
+$tracx-gray-base: #101010;
+
+$tracx-primary-color: $tracx-blue-base;
+$tracx-inverse-color: #4a4a4a;
+$tracx-link-color: none;
+
+$color-facebook:#46629d;
+$color-twitter: #64cbee;
+$color-youtube: #ed6b52;
+$color-reddit: #606364;
+$color-blogs: #f6921e;
+$color-forums: #29b473;
+$color-news: #faaf40;
+$color-flickr: #d0d2d3;
+$color-foursquare: #ee4a78;
+$color-retail: #855ea6;
+$color-linkedin: #1186c8;
+$color-places: #00adee;
+$color-tumblr: #35465e;
+$color-google: #f06930;
+$color-instagram: #5f6263;
+$color-getglue: #3f7ca3;
+$color-vkontakte: #4d77a5;
+$color-pinterest: #f05f5d;
+$color-moikrug: #86bcd3;
+$color-odnoklasssniki: #f28320;
+$color-moimir: #2165ad;
+
+$social-colors-list: (
+        facebookevent: $color-facebook,
+        facebookgroup: $color-facebook,
+        facebookpage: $color-facebook,
+        facebook: $color-facebook,
+        twitter: $color-twitter,
+        youtube:$color-youtube,
+        reddit: $color-reddit,
+        blog: $color-blogs,
+        forum: $color-forums,
+        news: $color-news,
+        flickr: $color-flickr,
+        flickrgroup: $color-flickr,
+        foursquare: $color-foursquare,
+        foursquarevenue: $color-foursquare,
+        foursquareuser: $color-foursquare,
+        linkedin: $color-linkedin,
+        linkedinuser: $color-linkedin,
+        linkedingroup: $color-linkedin,
+        linkedincompany: $color-linkedin,
+        place: $color-places,
+        tumblr: $color-tumblr,
+        google: $color-google,
+        instagram: $color-instagram,
+        getglue: $color-getglue,
+        vkontakte: $color-vkontakte,
+        pinterest: $color-pinterest,
+        pinterestboard: $color-pinterest,
+        moikrug: $color-moikrug,
+        odnoklasssniki: $color-odnoklasssniki,
+        moimir: $color-moimir,
+        retail: $color-retail
+);
+
+$tracx-white: #fff;
+
+$tracx-base-colors-list: (
+        green: $tracx-green-base,
+        blue:  $tracx-blue-base,
+        orange: $tracx-orange-base,
+        red:$tracx-red-base,
+        yellow: $tracx-yellow-base,
+        gray: $tracx-gray-base
+);
+
+
+$tracx-colors-list: (
+        tracx-white: #fff
+);
+@mixin tracx-colors{
+  @each $name, $color in $tracx-colors-list{
+    .color-#{$name}{
+      color: $color;
+    }
+
+    .background-#{$name}{
+      background-color: unquote($color);
+    }
+  }
+}
+
+
+
+$percentage-list: (6,12,18,24,30,36,42,48,54,60,66,72,78,84,90);
+
+@mixin tracx-base-colors{
+
+  @each $name, $color in $tracx-base-colors-list{
+    .color-#{$name}{
+      color: $color;
+    }
+
+    .bg-#{$name}{
+      background: $color;
+
+      &.hover:hover{
+        background: lighten($color, 25);
+      }
+    }
+
+    @each $percenage in $percentage-list{
+      .lt-#{$name}-#{$percenage}{
+        color: lighten($color, $percenage);
+      }
+
+      .lt-bg-#{$name}-#{$percenage}{
+        background-color:lighten($color, $percenage);
+      }
+
+      .dk-#{$name}-#{$percenage}{
+        color: darken($color, $percenage);
+      }
+
+      .dk-bg-#{$name}-#{$percenage}{
+        background-color: darken($color, $percenage);
+      }
+    }
+  }
+}
+
+@mixin tracx-social-colors{
+  @each $name, $color in $social-colors-list{
+    .network-color-#{$name}{
+      color: $color ;
+    }
+
+    .bg-network-color-#{$name}{
+      background-color: $color ;
+    }
+  }
+}
+
+@mixin tracx-color-palette{
+  @include tracx-colors;
+  @include tracx-base-colors;
+  @include tracx-social-colors;
+}

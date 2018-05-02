@@ -1,0 +1,420 @@
+<div class="row column">
+    <h1>Tables</h1>
+</div>
+
+<div class="row margin-top-20">
+    <div class="columns large-12">
+        <div class="panel">
+            <div class="nav-bar">
+                <div class="nav-bar-inner"><h6>Ko Table</h6></div>
+            </div>
+            <div class="row well display-flex padding-top-10  padding-bottom-10">
+                <div class="columns large-4 separate-border">
+                    <h4>Component Descriptions</h4>
+                    <p>
+                        Table Component is a simple and clean solution for html tables with interaction controls,
+                        client and server based pagination, sorting, column visibility picker and more...
+                    </p>
+                    <h4 class="margin-top-10">Options</h4>
+                    <ul class="margin-left-10 margin-top-5">
+                        <li>Pagination</li>
+                        <li>Sorting</li>
+                        <li>Show/hide columns</li>
+                        <li>Dynamic Row Templates</li>
+                        <li>Custom Actions</li>
+                        <li>Dynamic Row Click handler</li>
+                    </ul>
+                </div>
+                <div class="columns large-8">
+                    <h4>Component Parameters</h4>
+                    <ul class="margin-top-5 line-height-26">
+                        <li><b>data: </b>&nbsp;<code>{array}</code>&nbsp;Data source witch rows are build from, required when using client-side processing</li>
+                        <li><b>maxWidth: </b>&nbsp;<code>{string}</code>&nbsp;Table width, optional, by default table width is 100%</li>
+                        <li><b>height: </b>&nbsp;<code>{string}</code>&nbsp;Define table height, will be applied as style on .table-body element, optional</li>
+                        <li>
+                            <b>headOptions: </b>&nbsp;<code>{array}</code>&nbsp;Range of options to define column behavior
+                            <ul class="margin-left-20 line-height-26 lt-gray-36">
+                                <li><b>title: </b>&nbsp;<code>{string}</code>&nbsp;Th title, default is empty string</li>
+                                <li><b>sticky: </b>&nbsp;<code>{boolean}</code>&nbsp;If set to true, this column wouldn't be available on column manager and would always be visible</li>
+                                <li><b>subTitle: </b>&nbsp;<code>{string}</code>&nbsp;Th sub title, default is empty string, optinal</li>
+                                <li><b>visible: </b>&nbsp;<code>{boolean}</code>&nbsp;Column visibility, default true</li>
+                                <li><b>width: </b>&nbsp;<code>{int}</code>&nbsp;Define column width, optional</li>
+                                <li><b>class: </b>&nbsp;<code>{string}</code>&nbsp;Any css class name</li>
+                                <li><b>highlight: </b>&nbsp;<code>{boolean}</code>&nbsp;Highlight column, 'highlight' class name will be added to column td's</li>
+                                <li><b>sort: </b>&nbsp;<code>{string|function}</code>&nbsp;Column sorting options, sort types as 'string', 'number' already available, developer may add custom sorting functionality (see sorting table example)</li>
+                                <li><b>actions: </b>&nbsp;<code>{array}</code>&nbsp;Specify number of buttons|button that will be inserted in each row for this column (see full featured table example)</li>
+                            </ul>
+                        </li>
+                        <li><b>rowTemplate: </b>&nbsp;<code>{string}</code>&nbsp;Dynamically choosing which template is used for each table, this parameter represent file name and location, for example: 'ko/components/table/demo'</li>
+                        <li><b>rowClick: </b>&nbsp;<code>{function}</code>&nbsp;Function to invoke when row is clicked, row object will passed to the function (see full featured table example)</li>
+                        <li>
+                            <b>pagination: </b>&nbsp;<code>{object}</code>&nbsp;Pagination can be applied by the client or by passing server url to implement server side pagination
+                            <ul class="margin-left-20 line-height-26 lt-gray-36">
+                                <li><b>server: </b>&nbsp;<code>{boolean}</code>&nbsp;False for using client side pagination, if set true, serverUrl option is required</li>
+                                <li><b>serverUrl: </b>&nbsp;<code>{string}</code>&nbsp;Path will be used by the component to make ajax requests</li>
+                                <li><b>serverParams: </b>&nbsp;<code>{object}</code>&nbsp;Additional parameters can be added to ajax requests.
+                                    </br>The param may be computed function, and whenever those dependencies changed, new server request will run.</li>
+                                <li><b>recordsPerPageOptions: </b>&nbsp;<code>{array}</code>&nbsp;Options for records per page select box, optional, the defaults are: [5, 10]</li>
+                                <li><b>recordsPerPage: </b>&nbsp;<code>{int}</code>&nbsp;The amount of items in each page, optional, default value is 5</li>
+                            </ul>
+                        </li>
+                        <li><b>instance: </b>&nbsp;<code>{function}</code>&nbsp;Reference to ko table component</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-top-20">
+    <div class="columns large-12">
+        <div class="panel">
+            <div class="nav-bar">
+                <div class="nav-bar-inner"><h6>Server Pagination</h6></div>
+            </div>
+            <div class="row well display-flex padding-top-10  padding-bottom-10">
+                <div class="columns large-4 separate-border">
+                    <h4>Server Result structure</h4>
+                    <p>
+                        If you choose to use server pagination, this is the structure you need to return to the client
+                        </br>
+                        <code>
+                            $result = array( </br>
+                            &nbsp;&nbsp;"rowsCount"=>count($demoData),</br>
+                            &nbsp;&nbsp;"rows"=>$data</br>
+                            );</br>
+                            return new ResponseJSON($result);
+                        </code>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row margin-top-20">
+    <div class="columns large-12">
+        <div class="panel">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Simple Table</h6>
+                </div>
+            </div>
+            <div class="row well display-flex">
+                <div class="columns large-8 separate-border">
+                        <ko.table--table class="margin-left--40 margin-right--40  " params="data: tableSampleDataB,
+                                        headOptions:
+                                        [
+                                            {
+                                                title: 'status',
+                                                visible: true,
+                                                switch: switchTest,
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Campaign',
+                                                visible: true,
+                                                width: '240',
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Delivery',
+                                                visible: true,
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Results',
+                                                visible: true,
+                                                width: '150',
+                                                subTitle: 'Text | Text | Text',
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Reach',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'ad_reach'},
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Cost',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'avg_cost_per_engagement'},
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Amount spent',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'budget_spent'},
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Impressions',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'ad_impressions'},
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'End Date',
+                                                visible: true,
+                                                width: '150',
+                                                class: 'text-center',
+                                                sticky: true
+                                            },
+                                            {
+                                                title: 'Clicks',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'ad_clicks_count'},
+                                                class: 'text-center'
+                                            },
+                                            {
+                                                title: 'Likes',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'ad_likes_count'}
+                                            },
+                                            {
+                                                title: 'Comments',
+                                                visible: true
+                                            },
+                                            {
+                                                title: 'Shares',
+                                                visible: true,
+                                                sort: {type: 'number',key: 'ad_shares_count'}
+                                            },
+                                            {
+                                                title: 'CRT',
+                                                visible: true
+                                            },
+                                            {
+                                                title: 'CPM',
+                                                visible: true
+                                            },
+                                            {
+                                                title: 'CPC',
+                                                visible: true
+                                            },
+                                            {
+                                                title: 'People taking action',
+                                                visible: true
+                                            },
+                                            {
+                                                title: 'Post Engagement',
+                                                visible: true
+                                            }
+                                        ],
+                                        rowClick: rowClick,
+                                        height: '400px',
+                                        pagination:
+                                        {
+                                            server: false,
+                                            recordsPerPageOptions: ['5', '10', '15'],
+                                            recordsPerPage: '15'
+                                        },
+                                        rowTemplate: 'ko/components/table/demo',
+                                        instance: tableInstance">
+                        </ko.table--table>
+                </div>
+                <div class="columns large-4">
+                    <div class="margin-top-10">
+                        <ko.view-source params="sourceClass: 'sourceElement1'"></ko.view-source>
+
+                        <pre class="sourceElement1 ko-component-code">
+params="data: tableSampleDataB,
+headOptions:
+[{
+    title: 'Status',
+    visible: true
+},
+{
+    title: 'Campaign',
+    visible: true,
+    width: 150,
+    sort:
+    {
+        type: 'string',
+        key: 'name'
+    }
+},
+{
+    title: 'Email',
+    visible: true,
+    width: 200
+},
+{
+    title: 'Results',
+    visible: true,
+},
+{
+    title: 'Reach',
+    visible: true,
+    width: 20
+}
+],
+rowTemplate: 'ko/components/table/demo',
+rowClick: rowClick,
+height: '500px',
+instance: tableInstance"
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-top-20">
+    <div class="columns large-12">
+        <div class="panel">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Full featured</h6>
+                </div>
+            </div>
+            <div class="row well display-flex">
+                <div class="columns large-8 separate-border">
+                    <ko.table--table class="margin-left--40 margin-right--40 border-bottom-dashed"
+                                     params="data: tableSampleData,
+                                        maxWidth: '100%',
+                                        maxHeight: '250px',
+                                        headOptions:
+                                        [
+                                            {
+                                                title: 'Test',
+                                                visible: true,
+                                                switch: switchTest
+                                            },
+                                            {
+                                                title: 'Campaign',
+                                                visible: true,
+                                                width: 150,
+                                                sort:
+                                                {
+                                                    type: 'string',
+                                                    key: 'name'
+                                                }
+                                            },
+                                            {
+                                                title: 'Email',
+                                                visible: true,
+                                                width: 200,
+                                                highlight: true
+                                            },
+                                            {
+                                                title: 'Results',
+                                                visible: true,
+                                            },
+                                            {
+                                                title: 'Actions',
+                                                visible: true,
+                                                width: 120,
+                                                actions:
+                                                [
+                                                    {
+                                                        icon: 'tr-icon-tags-manager',
+                                                        click: actionTest.bind($root)
+                                                    },
+                                                    {
+                                                        icon: 'tr-icon-edit',
+                                                        click: actionTest.bind($root)
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                title: 'Reach',
+                                                visible: true,
+                                                width: 20,
+                                                sort:
+                                                {
+                                                    type: 'number',
+                                                    key: 'id'
+                                                }
+                                            }
+                                        ],
+                                        rowTemplate: 'ko/components/table/demob',
+                                        rowClick: rowClick,
+                                        pagination:
+                                        {
+                                            server: false,
+                                            serverUrl: '/internal/PaidBoostApi/getPaginatedData',
+                                            recordsPerPageOptions: ['5', '10', '15'],
+                                            recordsPerPage: '10'
+                                        },
+                                        instance: tableInstanceB">
+                    </ko.table--table>
+                </div>
+                <div class="columns large-4">
+                    <div class="margin-top-10">
+                        <ko.view-source params="sourceClass: 'sourceElement2'"></ko.view-source>
+
+                        <pre class="sourceElement2 ko-component-code">
+params="data: tableSampleData,
+headOptions:
+[
+    {
+        title: 'Test',
+        visible: true
+    },
+    {
+        title: 'Campaign',
+        visible: true,
+        width: 150,
+        sort:
+        {
+            type: 'string',
+            key: 'name'
+        }
+    },
+    {
+        title: 'Email',
+        visible: true,
+        width: 200,
+        highlight: true,
+        sort: emailSorting.bind($component)
+    },
+    {
+        title: 'Results',
+        visible: true,
+    },
+    {
+        title: 'Actions',
+        visible: true,
+        width: 120,
+        actions:
+        [
+            {
+                icon: 'tr-icon-tags-manager',
+                click: function(data, event){console.log(data);console.log(event);}
+            },
+            {
+                icon: 'tr-icon-edit',
+                click: actionTest
+            }
+        ]
+    },
+    {
+        title: 'Reach',
+        visible: true,
+        width: 20,
+        sort:
+        {
+            type: 'number',
+            key: 'id'
+        }
+    }
+],
+rowTemplate: 'ko/components/table/demob',
+rowClick: rowClick,
+pagination:
+{
+    server: false,
+    recordsPerPageOptions: [5, 10, 15],
+    recordsPerPage: 10
+},
+instance: tableInstanceB"
+                    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,317 @@
+@import "../color/color-palette";
+
+$separator-border-dashed: 1px dashed lighten($tracx-gray-base, 78);
+$separator-border-solid: 1px solid lighten($tracx-gray-base, 78);
+
+//make sure the parent set as relative
+@mixin absolute-positions()
+{
+  .absolute{
+    position:absolute;
+  }
+
+  .top-left{
+    position:absolute;
+    top:0;
+    left:0;
+  }
+  .bottom-left{
+    position:absolute;
+    bottom:0;
+    left:0;
+  }
+  .top-right{
+    position:absolute;
+    top:0;
+    right:0;
+  }
+  .bottom-right{
+    position:absolute;
+    bottom:0;
+    right:0;
+  }
+
+  .absolute-center{
+    position:absolute;
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+  }
+}
+@mixin row-manipulations()
+{
+  *::-ms-clear {
+    display: none;
+  }
+  .fullHeight
+  {
+    height: 100%;
+  }
+  .fullWidth
+  {
+    width: 100%;
+  }
+  .no-padding {
+    padding:  0 !important;
+  }
+  .no-margin{
+    margin:   0 !important;
+  }
+
+  .row {
+    &.fixed-bottom
+    {
+      position: absolute;
+      bottom: 0;
+      max-width: none;
+    }
+
+    .relative{
+      position:relative;
+    }
+  }
+
+  .overflow-hidden{
+    overflow:hidden;
+  }
+  .overflow-y {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .absolute {
+    position:absolute;
+  }
+  .inline-block {
+    display: inline-block !important;
+  }
+}
+
+@mixin text-ellipsis()
+{
+  .ellipsis
+  {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+
+$margin-list: (-40,-20,-10, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19, 20, 25, 30, 36, 150);
+$padding-list: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 35, 36, 40, 45, 50);
+$min-widths: (45,50,60,100,150,175,200, 350);
+$max-widths: (50);
+$max-heights: (10,15,25,30,35,38,40,45,50,250,450);
+$min-heights: (40,41,45);
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+@mixin margins(){
+  @each $item in $margin-list{
+    .margin-#{$item}{
+      margin:#{$item}px !important;
+    }
+    .margin-top-#{$item}{
+      margin-top:#{$item}px !important;
+    }
+    .margin-right-#{$item}{
+      margin-right:#{$item}px !important;
+    }
+    .margin-bottom-#{$item}{
+      margin-bottom:#{$item}px !important;
+    }
+    .margin-left-#{$item}{
+      margin-left:#{$item}px !important;
+    }
+
+
+    .top-#{$item}{
+      top:#{$item}px !important;
+    }
+
+    .left-#{$item}{
+      left:#{$item}px !important;
+    }
+
+    .right-#{$item}{
+      right:#{$item}px !important;
+    }
+
+    .bottom-#{$item}{
+      bottom:#{$item}px !important;
+    }
+  }
+}
+
+
+@mixin paddings(){
+  @each $item in $padding-list{
+    .padding-#{$item}{
+      padding:#{$item}px;
+    }
+    .padding-top-#{$item}{
+      padding-top:#{$item}px;
+    }
+    .padding-right-#{$item}{
+      padding-right:#{$item}px;
+    }
+    .padding-bottom-#{$item}{
+      padding-bottom:#{$item}px;
+    }
+    .padding-left-#{$item}{
+      padding-left:#{$item}px;
+    }
+  }
+}
+
+@mixin minwidth(){
+  @each $item in $min-widths{
+    .min-width-#{$item}{
+      min-width:#{$item}px;
+    }
+
+    .width-#{$item}{
+      width:#{$item}px !important;
+    }
+  }
+  .min-width-percentage-100{
+    min-width:100%;
+  }
+}
+
+@mixin max-width() {
+  @each $width in $max-widths {
+    .max-width-#{$width} {
+      max-width: #{$width}px !important
+    }
+
+    .width-#{$width} {
+      width: #{$width}px !important
+    }
+  }
+}
+
+@mixin max-height() {
+  @each $height in $max-heights {
+    .max-height-#{$height} {
+      max-height: #{$height}px !important
+    }
+
+    .height-#{$height} {
+      height: #{$height}px !important
+    }
+  }
+}
+
+@mixin min-height() {
+  @each $height in $min-heights {
+    .min-height-#{$height} {
+      min-height: #{$height}px !important
+    }
+  }
+}
+
+@mixin borders()
+{
+  .dashed-bottom, .border-bottom-dashed
+  {
+    border-bottom: $separator-border-dashed;
+  }
+
+  .border-top-dashed
+  {
+    border-top: $separator-border-dashed;
+  }
+
+  .border-right-dashed
+  {
+    border-right: $separator-border-dashed;
+  }
+
+  .border-left-dashed
+  {
+    border-left: $separator-border-dashed;
+  }
+
+  .border-solid
+  {
+    border: $separator-border-solid
+  }
+
+  .border-top-solid
+  {
+    border-top: $separator-border-solid;
+  }
+
+  .border-bottom-solid
+  {
+    border-bottom: $separator-border-solid;
+  }
+
+  .border-right-solid
+  {
+    border-right: $separator-border-solid;
+  }
+
+  .border-left-solid
+  {
+    border-left: $separator-border-solid;
+  }
+}
+
+@mixin customPosition{
+  @include margins;
+  @include paddings;
+  @include max-width;
+  @include minwidth;
+  @include max-height;
+  @include min-height;
+  @include absolute-positions;
+  @include row-manipulations;
+  @include borders;
+}
+
+

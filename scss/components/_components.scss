@@ -1,0 +1,27 @@
+@import 'tags-autocomplete';
+@import 'datepicker';
+@import 'tree-select';
+@import 'tabs';
+@import "sidebar";
+@import "tags";
+@import "right-fixed-sidebar";
+@import "metrics-display";
+@import "loader";
+@import "boost-wizard";
+@import "horizontal-gallery";
+@import "notification-center";
+
+@mixin tracx-components
+{
+  @include tracx-tags-autocomplete; // used in publish, boost
+  @include tracx-datepicker;
+  @include tracx-tree-select;
+  @include tracx-tabs;
+  @include tracx-sidebar;
+  @include tracx-tags;
+  @include metrics-display;
+  @include loading-gorilla;
+  @include boost-wizard;
+  @include horizontal-gallery;
+  @include notification-center;
+}

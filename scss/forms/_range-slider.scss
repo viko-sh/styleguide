@@ -1,0 +1,74 @@
+@import "../color/color-palette";
+@import '../global';
+@import 'text';
+
+@mixin tracx-range-slider {
+
+  // this is for current usage of the jquery UI range slider with our styles
+  // example: <div class="radius" data-bind="rangeSlide: {min: AUDIENCE.MIN_AGE, max: AUDIENCE.MAX_AGE, values: { min: minAge, max: maxAge } }"></div>
+  .ui-slider {
+
+    padding: 0;
+    width: 100%;
+
+    .ui-widget-header {
+      position: relative;
+      background-color: #58a86b;
+      height: 100%;
+    }
+
+    .ui-corner-all {
+      padding: 0;
+      position: absolute;
+      top: -6px;
+      width: 17px;
+      height: 18px;
+      background: url("/img/publish/publish-slider-handle.png") 21px -4px; // TODO: need to replace this
+      background-color: white;
+      border: none !important;
+    }
+    &.ui-slider-horizontal {
+      border: 2px solid #ecedee;
+      height: 8px;
+      overflow: visible;
+      &.ui-corner-all {
+        position: relative;
+      }
+    }
+    a.ui-slider-handle.ui-state-default.ui-corner-all {
+      border: none !important;
+      height: 18px;
+    }
+  }
+
+  // this is for future usage of the new range slider
+  // example:  <input type="range" class="tr-ignore-old-style" min="0" max="100" value="50" id="fader" step="1" oninput="outputUpdate(value)" />
+  input[type=range]{
+
+    -webkit-appearance: none;
+    &::-webkit-slider-runnable-track{
+      width: 300px;
+      height: 5px;
+      background: #ddd;
+      border: none;
+      border-radius: 3px;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: goldenrod;
+      margin-top: -4px;
+    }
+
+    &:focus {
+      outline: none;
+      &::-webkit-slider-runnable-track {
+        background: #ccc;
+      }
+    }
+  }
+
+}

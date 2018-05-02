@@ -1,0 +1,73 @@
+// side bar
+// usage: boost dashboard filters
+@import '../global';
+@import "../color/color-palette";
+@import "../util/customposition";
+
+$sidebar-width: 320px;
+
+@mixin tracx-sidebar {
+
+  .sidebar
+  {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $sidebar-width;
+    border-right: $separator-border-solid;
+
+    ul
+    {
+      li:not(.container)
+      {
+        &:hover
+        {
+          background-color: lighten($tracx-gray-base, 90);
+          cursor: pointer;
+        }
+        span
+        {
+          label
+          {
+            p.ellipsis
+            {
+              width: calc(100% - 30px );
+            }
+          }
+        }
+      }
+    }
+    border-right: $separator-border-solid;
+
+    ul
+    {
+      li:not(.container)
+      {
+        &:hover
+        {
+          background-color: lighten($tracx-gray-base, 90);
+          cursor: pointer;
+        }
+        span
+        {
+          label
+          {
+            p.ellipsis
+            {
+              width: calc(100% - 30px );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-content-open
+  {
+    padding-left: $sidebar-width;
+  }
+
+}

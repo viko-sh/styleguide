@@ -1,0 +1,259 @@
+@import "../color/color-palette";
+////
+/// @group forms
+////
+@mixin tracx-checkbox {
+
+  //  tracx checkbox wrapper
+  // this is a regular checkbox from left and label after it - all clickable
+  .tracx-checkbox
+  {
+    display: inline-block;
+
+    input[type='checkbox']
+    {
+      visibility: hidden;
+      display: none;
+
+      + label
+      {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        min-height: 18px;
+
+        &:hover
+        {
+          color: lighten($tracx-gray-base, 24);
+          span
+          {
+            border: 1px solid lighten($tracx-gray-base, 66);
+          }
+        }
+        &:focus
+        {
+          span
+          {
+            border: 1px solid lighten($tracx-gray-base, 78);
+            box-shadow: 0 0 3px 1px rgba(81, 82, 84, 0.25)
+          }
+        }
+
+        span
+        {
+          i
+          {
+            display: none;
+            position: relative;
+          }
+          background-color: white;
+          width: 18px;
+          min-width: 18px;
+          height: 18px;
+          border: 1px solid lighten($tracx-gray-base, 78);
+          border-radius: 2px;
+          cursor: pointer;
+          text-align: center;
+          display: inline-block;
+          margin-right: 19px;
+        }
+        p
+        {
+          display: inline-block;
+        }
+      }
+
+      &:disabled
+      {
+        +label
+        {
+          color: lighten($tracx-gray-base, 84);
+          span
+          {
+            border: 1px solid lighten($tracx-gray-base, 78);
+            background-color: lighten($tracx-gray-base, 84);
+          }
+        }
+      }
+      &:checked
+      {
+        + label
+        {
+          color: lighten($tracx-gray-base, 24);
+          span
+          {
+            i
+            {
+              display: inline-block;
+              font-size: 10px;
+              height: 10px;
+              line-height: 10px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  //  tracx checkbox wrapper
+  // this is a regular checkbox from left and label after it - all clickable
+  .tracx-checkbox-right
+  {
+    width: 100%;
+    display: inline-block;
+
+    input[type='checkbox']
+    {
+      visibility: hidden;
+      display: none;
+
+      + label
+      {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 100%;
+        min-height: 18px;
+
+        &:hover
+        {
+          color: lighten($tracx-gray-base, 24);
+
+          span
+          {
+            border: 1px solid lighten($tracx-gray-base, 66);
+          }
+        }
+        &:focus
+        {
+          span
+          {
+            border: 1px solid lighten($tracx-gray-base, 78);
+            box-shadow: 0 0 3px 1px rgba(81, 82, 84, 0.25)
+          }
+        }
+
+        span
+        {
+          i
+          {
+            display: none;
+            position: relative;
+          }
+          background-color: white;
+          width: 18px;
+          min-width: 18px;
+          height: 18px;
+          border: 1px solid lighten($tracx-gray-base, 78);
+          border-radius: 2px;
+          cursor: pointer;
+          display: inline-block;
+          margin-left: 19px;
+        }
+
+        p
+        {
+          display: inline-block;
+        }
+      }
+
+      &:disabled
+      {
+        +label
+        {
+          color: lighten($tracx-gray-base, 84);
+          span
+          {
+            border: 1px solid lighten($tracx-gray-base, 78);
+            background-color: lighten($tracx-gray-base, 84);
+          }
+        }
+      }
+      &:checked
+      {
+        + label
+        {
+          color: lighten($tracx-gray-base, 24);
+          span
+          {
+            i
+            {
+              display: inline-block;
+              font-size: 10px;
+              height: 10px;
+              line-height: 10px;
+              margin-left: 3px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width:24px;
+    height:14px;
+
+    /* Hide default HTML checkbox */
+    & input {display:none;}
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color:lighten($tracx-gray-base, 54) ;
+      -webkit-transition: .4s;
+      transition: .4s;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height:10px;
+        width:10px;
+        left:1px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+
+      &.round:before {
+        border-radius: 50%;
+      }
+
+      /* Rounded sliders */
+      &.round {
+        border-radius:7px;
+      }
+    }
+
+    input:checked + .slider {
+      background-color: darken($tracx-green-base, 18);
+    }
+
+    input:disabled + .slider {
+      background-color: lighten($tracx-gray-base, 78);
+      &:before {
+        background-color: lighten($tracx-gray-base, 84);
+      }
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(12px);
+      -ms-transform: translateX(12px);
+      transform: translateX(12px);
+    }
+  }
+}

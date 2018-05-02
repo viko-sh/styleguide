@@ -1,0 +1,55 @@
+@mixin tracx-network-icons{
+  .tr-icon-facebookevent:before,
+  .tr-icon-facebookgroup:before,
+  .tr-icon-facebookpage:before{
+    content: "\e031";
+  }
+
+  .tr-icon-b-facebookevent:before,
+  .tr-icon-b-facebookgroup:before,
+  .tr-icon-b-facebookpage:before
+  {
+    content: "\e046";
+  }
+
+  .tr-icon-pinterestboard:before{
+    content: "\e041";
+  }
+
+  .tr-icon-b-pinterestboard:before {
+    content: "\e058";
+  }
+
+  .tr-icon-blog:before{
+    content: "\e035";
+  }
+
+  .tr-icon-b-blog:before {
+    content: "\e053";
+  }
+  .tr-icon-youtube:before {
+    content: "\e033";
+  }
+
+  .tr-icon-b-youtube:before {
+    content: "\e048";
+  }
+
+  .tr-icon-linkdingroup:before,
+  .tr-icon-linkedingroup:before,
+  .tr-icon-linkedincompany:before
+  {
+    content: "\e03b";
+  }
+
+  .tr-icon-b-linkdingroup:before {
+    content: "\e04d";
+  }
+  .tr-icon-foursquarevenue:before,
+  .tr-icon-foursquareuser:before
+  {
+    content: "\e039";
+  }
+
+}
+

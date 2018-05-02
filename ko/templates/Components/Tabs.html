@@ -1,0 +1,135 @@
+<div class="row column">
+    <h1>Tabs</h1>
+</div>
+<div class="row margin-top-20">
+    <div class="large-8 columns">
+        <div class="widget margin-bottom-20">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>example with 2 tabs, Used In: boost</h6>
+                </div>
+            </div>
+
+            <div class="well body text-center">
+                <div class="row column margin-bottom-20 border-dashed">
+                    <!-- tabs component -->
+                    <ko.style--tabs class="" params="tabs: [ { text: 'Create New Campaign' }, { text: 'Create Ad Set' }], onChange: onchange, border: true, instance: tabsInstanceA"></ko.style--tabs>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget margin-bottom-20">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>example with 3 tabs</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row column margin-bottom-20 border-dashed">
+                    <!-- tabs component -->
+                    <ko.style--tabs class="" params="tabs: [ { text: 'test1', icon: 'tr-icon-screen-01' }, { text: 'test2', icon: 'tr-icon-screen-2-02' }, { text: 'test3', icon: 'tr-icon-mobile-03' } ], onChange: onchange, border: true, instance: tabsInstanceB"></ko.style--tabs>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget margin-bottom-20">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>example with 4 tabs</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row column margin-bottom-20 border-dashed">
+                    <!-- tabs component -->
+                    <ko.style--tabs class="" params="tabs: _TABS,onChange: onchange, border: true, instance: tabsInstanceC"></ko.style--tabs>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget margin-bottom-20">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>example with 5 tabs</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row column margin-bottom-20 border-dashed">
+                    <!-- tabs component -->
+                    <ko.style--tabs class="" params="tabs: _TABS2, onChange: onchange, border: true, instance: tabsInstanceD"></ko.style--tabs>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget margin-bottom-20">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Multiple Choice </h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row column margin-bottom-20 border-dashed">
+                    <!-- tabs component -->
+                    <ko.style--tabs class="margin-left--40 margin-right--40 border-bottom-dashed"
+                                    params="tabs: _TABSMULTI, border: true, onChange: onchange, multiple: true, instance: tabsInstanceF"></ko.style--tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--documentations-->
+    <div class="large-4 columns">
+        <div class="widget">
+            <div class="nav-bar">
+                <div class="nav-bar-inner">
+                    <h6>Documentations</h6>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row ">
+                    <ol>
+                        <li class="strong">css & knockout component</li>
+                        <li>
+                            optional:
+                            <ol>
+                                <li>tabs with check & text only</li>
+                                <li>tabs with check & icon & text </li>
+                            </ol>
+                        </li>
+                        <li>knockout component element name: 'ko.style--tabs' </li>
+                        <li>
+                            <span class="font-weight-medium">parameters:</span>
+                            <ul class="margin-left-20" style="list-style-type:circle">
+                                <li>
+                                    <span class="strong">tabs</span> - ( enum array with object ) <br/>
+                                    <span class="font-weight-medium">Example Tab Object </span>
+                                    <ul class="margin-left-20" style="list-style-type:disc">
+                                        <li>text ( Required ) </li>
+                                        <li>selected ( Required ) </li>
+                                        <li>icon ( Optional ) </li>
+                                        <li>socialNetwork ( Optional ) </li>
+                                    </ul>
+                                </li>
+                                <li><span class="strong">multiple</span> - true if user can select multiple tabs , false by default</li>
+                                <li><span class="strong">instance</span> - if you need the instance of the component once its loaded </li>
+                                <li><span class="strong">onChange</span> - callback will return the selected tab, or selected tabs if multiple tabs selection is enabled</li>
+                                <li><span class="strong">border</span> - if to set border around the component</li>
+                            </ul>
+                         </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="well body text-center">
+                <div class="row ">
+                    <pre class="ko-component-code">
+&lt;ko.style--tabs class="margin-left--40 margin-right--40 border-bottom-dashed"
+    params="tabs: _TABS,
+            border: false,
+            onChange: onSelectedTabs.bind($component),
+            multiple: true,
+            instance: tabsInstance">
+&lt;/ko.style--tabs>
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

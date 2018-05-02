@@ -1,0 +1,16 @@
+@import '../color/color-palette';
+
+@mixin tracx-right-side-bar {
+  .fixed-right-sidebar.tr-sg
+  {
+    z-index: 4002;
+    position: fixed;
+    border-left: 1px solid lighten($tracx-gray-base, 84);
+    height: calc( 100% - 50px );
+    top: 49px;
+    overflow-y: auto;
+    background-color: $tracx-white;
+    box-shadow: -1px 0 21px -9px #888;
+  }
+}
+@include tracx-right-side-bar;

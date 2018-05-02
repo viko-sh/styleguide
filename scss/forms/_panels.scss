@@ -1,0 +1,9 @@
+$panel-border: none; // 1px solid rgba($black, 0.25) !default;
+$panel-background: transparent !default; // $white !default;
+
+@mixin tracx-panel {
+  .panel {
+    border: $panel-border;
+    background: $panel-background ;
+  }
+}

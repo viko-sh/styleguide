@@ -1,0 +1,73 @@
+@import "../color/color-palette";
+@import "../util/customposition";
+
+@mixin tracx-progress-bar {
+  ul.steps-menu{
+
+    display: block;
+    height: 20px;
+
+    li  {
+      text-align: center;
+      display: inline-block;
+      position: relative;
+      margin-left: 20px;
+      height: 16px;
+      width: 16px;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      span{
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 10px;
+        background: lighten($tracx-gray-base, 78);
+        border: 1px lighten($tracx-gray-base, 78) solid;
+        @include transform(scale(0.8));
+        cursor: pointer;
+      }
+      &:hover{
+        span {
+          @include transform(scale(1));
+          @include transition(all 0.2s 0.2s);
+          outline:none;
+        }
+      }
+
+      &.step-active {
+        span {
+          border: 2px $tracx-green-base solid;
+          background: $tracx-white;
+        }
+      }
+
+      &.step-done {
+        span {
+          background: $tracx-green-base;
+          border: 1px $tracx-green-base solid;
+        }
+      }
+
+      &:first-child {
+        margin-left: 0;
+        &::before {
+          display: none;
+        }
+      }
+
+
+      &::before{
+        content: '.....';
+        position: absolute;
+        top: -3px;
+        left: -24px;
+        letter-spacing: 2px;
+        color: lighten($tracx-gray-base, 36);
+      }
+    }
+  }
+}

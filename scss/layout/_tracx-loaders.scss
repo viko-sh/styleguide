@@ -1,0 +1,12 @@
+@mixin tracx-loaders {
+  .waitingConfirmation {
+    background: white no-repeat scroll 50% 25%;
+    top: 0;
+    left: 0;
+    opacity: 0.75;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+  }
+}

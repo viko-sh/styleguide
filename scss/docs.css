@@ -1,0 +1,168 @@
+.display .row {
+  background: #eee;
+  font-size: 11px;
+  margin-bottom: 10px;
+  line-height: 2rem;
+  border: solid 1px #c6c6c6;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  min-height: 35px; }
+  .display .row .columns:nth-child(2), .display .row .columns.small-centered, .display .row .columns.large-centered {
+    background: #e1e1e1; }
+  .display .row .columns.color-end {
+    background: #d5d5d5; }
+
+.copy-clipboard-content {
+  position: absolute;
+  left: -1999px; }
+
+.color-item-primary {
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  margin: 0 10px 0 0;
+  border: 1px solid #d5d5d5;
+  cursor: pointer; }
+
+.color-item {
+  height: 100px;
+  margin: 0 10px 0 0;
+  padding: 5px;
+  font-size: 14px; }
+  .color-item div {
+    height: 90px;
+    border: 1px solid #d5d5d5;
+    margin: 0 auto; }
+  .color-item code {
+    width: 100%; }
+
+.background-color-base-green {
+  background: #81b650; }
+  .background-color-base-green:hover {
+    background: #c2dcaa; }
+  .background-color-base-green.selected {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75); }
+
+.background-color-base-blue {
+  background: #00a8e5; }
+  .background-color-base-blue:hover {
+    background: #66d6ff; }
+  .background-color-base-blue.selected {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75); }
+
+.background-color-base-orange {
+  background: #f36a2e; }
+  .background-color-base-orange:hover {
+    background: #fac0a7; }
+  .background-color-base-orange.selected {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75); }
+
+.background-color-base-red {
+  background: #ff0000; }
+  .background-color-base-red:hover {
+    background: #ff8080; }
+  .background-color-base-red.selected {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75); }
+
+.background-color-base-yellow {
+  background: #feec96; }
+  .background-color-base-yellow:hover {
+    background: white; }
+  .background-color-base-yellow.selected {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75); }
+
+.background-color-base-gray {
+  background: #101010; }
+  .background-color-base-gray:hover {
+    background: #505050; }
+  .background-color-base-gray.selected {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75); }
+
+/*icons*/
+.glyphs.css-mapping {
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+
+.glyphs.css-mapping li {
+  margin: 0 30px 0 0;
+  padding: 0;
+  display: inline-block;
+  overflow: hidden;
+  width: 235px; }
+
+.glyphs.css-mapping i {
+  padding: 13px; }
+
+.glyphs.css-mapping input {
+  margin: 0;
+  margin-top: 5px;
+  padding: 8px;
+  line-height: 16px;
+  font-size: 16px;
+  display: block;
+  width: 150px;
+  height: 40px;
+  border: 1px solid #d8e0e5;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+  outline: 0;
+  float: right; }
+
+/*search*/
+.autocomplete-append, .typeahead-append {
+  position: relative;
+  height: 34px;
+  text-align: left; }
+
+.search {
+  padding: 12px;
+  border: 1px solid #d5d5d5;
+  position: relative;
+  background: #f6f6f6;
+  background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #f6f6f6));
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f6f6f6 100%);
+  background: -o-linear-gradient(top, #ffffff 0%, #f6f6f6 100%);
+  background: -ms-linear-gradient(top, #ffffff 0%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); }
+  .search input[type=text] {
+    font-size: 12px;
+    background: #fff url(../img/big_search.png) no-repeat 10px 10px;
+    width: 100%;
+    margin: 0;
+    padding: 9px 140px 9px 28px;
+    height: 34px;
+    display: block;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #dadada; }
+  .search input[type=submit] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 13px 9px 13px;
+    line-height: 13px;
+    box-shadow: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+  .search .search-result {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    background: #fff;
+    border: 1px #000000 solid;
+    z-index: 299;
+    height: 350px;
+    width: 350px; }
+
+.ui-helper-hidden-accessible {
+  display: none; }
+
+/*# sourceMappingURL=docs.css.map */

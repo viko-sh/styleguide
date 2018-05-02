@@ -1,0 +1,83 @@
+@import '../color/color-palette';
+@import '../forms/text';
+
+@mixin tracx-tabs {
+  // we need to create tabs component to support from 2 - 8 tabs
+  // need to populate this with for each and parameters
+  $tabs-sizes: (
+    tr-tab-component-2: (
+            item-width: 50%
+    ),
+    tr-tab-component-3: (
+            item-width: 33.33333333333333%
+    ),
+    tr-tab-component-4: (
+            item-width: 25%
+    ),
+    tr-tab-component-5: (
+            item-width: 20%
+    )
+  );
+
+  @each $tab-component-name, $tabs-components-values in $tabs-sizes
+  {
+    ul.#{$tab-component-name} {
+      width: 100%;
+      overflow: hidden;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      height: 62px;
+
+      &.tab-component-border {
+        border-top: dotted 1px lighten($tracx-gray-base, 78);
+        border-bottom: dotted 1px lighten($tracx-gray-base, 78);
+      }
+
+      li.tr-tab-item {
+        width: #{map-get($tabs-components-values, 'item-width')};
+        display: block;
+        float: left;
+        height: 100%;
+        border-right: solid 1px lighten($tracx-gray-base, 78);
+        cursor: pointer;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        i {
+          color: lighten($tracx-green-base, 6);
+          //float: left;
+          //padding-top: 7px;
+          vertical-align: middle;
+          display: inline-block;
+          margin-top: -9px;
+
+        }
+
+        span.tab-text
+        {
+          color: lighten($tracx-gray-base, 48);
+          //float: left;
+          margin-top: 12px;
+        }
+
+        &.active, &:hover {
+          background: lighten($tracx-green-base, 6);
+          i {
+            color: $tracx-white;
+          }
+          span.tab-text
+          {
+            color: $tracx-white;
+          }
+        }
+
+        &:disabled {
+
+        }
+      }
+    }
+  }
+}

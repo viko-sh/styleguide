@@ -1,0 +1,32 @@
+@import '../color/color-palette';
+@import '../forms/text';
+
+@mixin tracx-datepicker {
+      &.datepicker {
+        &.datepicker-dropdown.dropdown-menu {
+          padding: 25px 4px 4px 4px;
+        }
+      }
+      .date-picker{
+        i {
+          display: inline-block;
+        }
+
+        width: 117px;
+        display: inline-block;
+        border: $tracx-input-default-border;
+        position: relative;
+
+        input[type="text"]{
+          border: none;
+          width: calc(100% - 24px);
+          float: right;
+          display: inline-block; // we have icon also
+          padding-left: 0;
+        }
+
+        input[type="text"]:focus{
+          box-shadow: none;
+        }
+      }
+}

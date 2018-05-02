@@ -1,0 +1,646 @@
+@import "../global";
+@import '../color/color-palette';
+// Base Typography
+// - - - - - - - - - - - - - - -
+// These are styles applied to basic HTML tags, including:
+//   - Paragraphs <p>
+//   - Bold/italics <b> <strong> <i> <em>
+//   - Small text <small>
+//   - Headings <h1>—<h6>
+//   - Anchors <a>
+//   - Dividers <hr>
+//   - Lists <ul> <ol> <dl>
+//   - Blockquotes <blockquote>
+//   - Code blocks <code>
+
+/// Font family for header elements.
+/// @type String | List
+$header-font-family: $body-font-family !default;
+
+/// Font weight of headers.
+/// @type String
+$header-font-weight: $global-weight-normal !default;
+
+/// Font style (e.g. italicized) of headers.
+/// @type String
+$header-font-style: normal !default;
+
+/// Font stack used for elements that use monospaced type, such as code samples
+/// @type String | List
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace !default;
+
+/// Color of headers.
+/// @type Color
+$header-color: inherit !default;
+
+/// Line height of headers.
+/// @type Number
+$header-lineheight: 1.4 !default;
+
+/// Bottom margin of headers.
+/// @type Number
+$header-margin-bottom: 0.5rem !default;
+
+/// Text rendering method of headers.
+/// @type String
+$header-text-rendering: optimizeLegibility !default;
+
+/// Font size of `<small>` elements.
+/// @type Number
+$small-font-size: 80% !default;
+
+/// Color of `<small>` elements when placed inside headers.
+/// @type Color
+$header-small-font-color: $medium-gray !default;
+
+/// Line height of text inside `<p>` elements.
+/// @type Number
+$paragraph-lineheight: 15px !default;
+
+/// Bottom margin of paragraphs.
+/// @type Number
+$paragraph-margin-bottom: 1rem !default;
+
+/// Text rendering method for paragraph text.
+/// @type String
+$paragraph-text-rendering: optimizeLegibility !default;
+
+/// Text color of code samples.
+/// @type Color
+$code-color: $black !default;
+
+/// Font family of code samples.
+/// @type String | List
+$code-font-family: $font-family-monospace !default;
+
+/// Font weight of text in code samples.
+/// @type String
+$code-font-weight: $global-weight-normal !default;
+
+/// Background color of code samples.
+/// @type Color
+//$code-background: $light-gray !default;
+
+/// Border around code samples.
+/// @type List
+$code-border: 1px solid $medium-gray !default;
+
+/// Padding around text of code samples.
+/// @type Number | List
+$code-padding: rem-calc(2 5 1) !default;
+
+/// Default color for links.
+/// @type Color
+$anchor-color: blue;
+
+/// Default color for links on hover.
+/// @type Color
+$anchor-color-hover: scale-color($anchor-color, $lightness: -14%) !default;
+
+/// Default text deocration for links.
+/// @type String
+$anchor-text-decoration: none !default;
+
+/// Default text decoration for links on hover.
+/// @type String
+$anchor-text-decoration-hover: none !default;
+
+/// Maximum width of a divider.
+/// @type Number
+$hr-width: 100%;
+
+/// Default border for a divider.
+/// @type List
+$hr-border: 1px solid $medium-gray !default;
+
+/// Default margin for a divider.
+/// @type Number | List
+$hr-margin: rem-calc(20) auto !default;
+
+/// Line height for items in a list.
+/// @type Number
+$list-lineheight: $paragraph-lineheight !default;
+
+/// Bottom margin for items in a list.
+/// @type Number
+$list-margin-bottom: $paragraph-margin-bottom !default;
+
+/// Bullet type to use for unordered lists (e.g., `square`, `circle`, `disc`, `none`).
+/// @type String
+$list-style-type: none !default;
+
+/// Positioning for bullets on unordered list items.
+/// @type String
+$list-style-position: outside !default;
+
+/// Left (or right) margin for lists.
+/// @type Number
+$list-side-margin: 0 !default;
+$list-ol-side-margin: 1.25rem;
+/// Left (or right) margin for a list inside a list.
+/// @type Number
+$list-nested-side-margin: 1.25rem !default;
+
+/// Bottom margin for `<dl>` elements.
+/// @type Number
+$defnlist-margin-bottom: 1rem !default;
+
+/// Font weight for `<dt>` elements.
+/// @type String
+$defnlist-term-weight: $global-weight-bold !default;
+
+/// Spacing between `<dt>` and `<dd>` elements.
+/// @type Number
+$defnlist-term-margin-bottom: 0.3rem !default;
+
+/// Text color of `<blockquote>` elements.
+/// @type Color
+$blockquote-color: $dark-gray !default;
+
+/// Padding inside a `<blockquote>` element.
+/// @type Number | List
+$blockquote-padding: rem-calc(9 20 0 19) !default;
+
+/// Side border for `<blockquote>` elements.
+/// @type List
+$blockquote-border: 1px solid $medium-gray !default;
+
+/// Font size for `<cite>` elements.
+/// @type Number
+$cite-font-size: rem-calc(13) !default;
+
+/// Text color for `<cite>` elements.
+/// @type Color
+$cite-color: $dark-gray !default;
+
+/// Font family for `<kbd>` elements.
+/// @type String | List
+$keystroke-font: $font-family-monospace !default;
+
+/// Text color for `<kbd>` elements.
+/// @type Color
+$keystroke-color: $black !default;
+
+/// Background color for `<kbd>` elements.
+/// @type Color
+//$keystroke-background: $light-gray !default;
+
+/// Padding for `<kbd>` elements.
+/// @type Number | List
+$keystroke-padding: rem-calc(2 4 0) !default;
+
+/// Border radius for `<kbd>` elements.
+/// @type Number | List
+$keystroke-radius: $global-radius !default;
+
+
+
+$sub-title-size: 13px;
+
+@mixin foundation-typography-base {
+  // Typography resets
+  div,
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  form,
+  p,
+  blockquote,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Paragraphs
+  p
+  {
+    font-size: $body-font-size;
+    line-height: $paragraph-lineheight;
+    //margin-bottom: $paragraph-margin-bottom;
+    text-rendering: $paragraph-text-rendering;
+  }
+
+  // Emphasized text
+  em,
+  i {
+    font-style: italic;
+    line-height: inherit;
+    cursor: pointer;
+    font-size: 12px;// default font icons size
+
+    &.no-hover{
+      cursor:default;
+
+      &:hover:before{
+        opacity:1;
+      }
+    }
+  }
+
+  // Strong text
+  strong,
+  b {
+    font-weight: $global-weight-bold;
+    line-height: inherit;
+  }
+
+  // Small text
+  small {
+    font-size: $small-font-size;
+    line-height: inherit;
+  }
+
+  // Headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+    font-style: $header-font-style;
+    color: $header-color;
+    text-rendering: $header-text-rendering;
+    //margin-top: 0;
+    //margin-bottom: $header-margin-bottom;
+    //line-height: $header-lineheight;
+
+    small {
+      color: $header-small-font-color;
+      line-height: 0;
+    }
+  }
+
+  // vertical align row - being used on boost
+  .valign-middle {
+    display: table;
+
+    > .columns {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    > .columns, > [class*="column"] + [class*="column"]:last-child {
+      float: none;
+    }
+  }
+
+  // Heading sizes
+  $headers: (
+          'h1': 24,
+          'h2': 21,
+          'h3': 18,
+          'h4': 16,
+          'h5': 14,
+          'h6': 12,
+  );
+  @each $header, $font-size in $headers {
+    #{$header} {
+      font-size: #{$font-size}px;
+    }
+  }
+
+  // font sizes generic
+  $font-sizes: (10, 12, 14, 16, 18, 22, 24, 30, 36, 40, 50, 60);
+
+  @each $font-size in $font-sizes{
+    .font-size-#{$font-size} {
+      font-size: #{$font-size}px;
+    }
+  }
+
+  // font sizes generic
+  $line-height-sizes: (10, 12, 14, 16, 22, 24, 26, 30, 36, 40, 50, 52, 60);
+
+  @each $line-height in $line-height-sizes{
+    .line-height-#{$line-height} {
+      line-height: #{$line-height}px ;
+    }
+  }
+
+
+  // Links
+  a, a.bluelink {
+
+    &:link, &:visited
+    {
+      color: darken($tracx-blue-base, 6); //$anchor-color;
+      text-decoration: $anchor-text-decoration;
+      cursor: pointer;
+    }
+
+    &:not(.btn):hover {
+      color: darken($tracx-blue-base, 12);//$anchor-color-hover;
+      border-bottom: 1px dotted $tracx-blue-base;
+      @if $anchor-text-decoration-hover != $anchor-text-decoration {
+        text-decoration: $anchor-text-decoration-hover;
+      }
+    }
+
+    &:active {
+      //color: darken($tracx-blue-base, 6);
+      text-decoration: none;
+    }
+
+
+
+    img {
+      border: 0;
+    }
+  }
+
+  // Horizontal rule
+  hr {
+    max-width: $hr-width;
+    height: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: $hr-border;
+    border-left: 0;
+    margin: $hr-margin;
+    clear: both;
+  }
+
+  // Lists
+  ul,
+  ol,
+  dl {
+    line-height: $list-lineheight;
+    margin-bottom: 0;
+    list-style-position: $list-style-position;
+  }
+
+  // List items
+  li {
+    font-size: inherit;
+    line-height:inherit;
+    color:inherit;
+  }
+
+  // Unordered lists
+  ul {
+    list-style-type: $list-style-type;
+    margin-#{$global-left}: $list-side-margin;
+  }
+
+  // Ordered lists
+  ol {
+    margin-#{$global-left}: $list-ol-side-margin;
+  }
+
+  // Nested unordered/ordered lists
+  ul, ol {
+    & & {
+      margin-#{$global-left}: $list-nested-side-margin;
+      margin-bottom: 0;
+    }
+  }
+
+  // Definition lists
+  dl {
+    margin-bottom: $defnlist-margin-bottom;
+
+    dt {
+      margin-bottom: $defnlist-term-margin-bottom;
+      font-weight: $defnlist-term-weight;
+    }
+  }
+
+  // Blockquotes
+  blockquote {
+    margin: 0 0 $paragraph-margin-bottom;
+    padding: $blockquote-padding;
+    border-#{$global-left}: $blockquote-border;
+
+    &, p {
+      line-height: $paragraph-lineheight;
+      color: $blockquote-color;
+    }
+  }
+
+  // Citations
+  cite {
+    display: block;
+    font-size: $cite-font-size;
+    color: $cite-color;
+
+    &:before {
+      content: '\2014 \0020';
+    }
+  }
+
+  // Abbreviations
+  abbr {
+    color: $body-font-color;
+    cursor: help;
+  }
+
+  // Code
+  code {
+    font-family: $code-font-family;
+    font-weight: $code-font-weight;
+    color: $code-color;
+    //background-color: $code-background;
+    border: $code-border;
+    padding: $code-padding;
+  }
+
+}
+
+// Typography helper classes (classes only)
+// Foundation for Sites by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
+////
+/// @group typography-helpers
+////
+
+/// Default font size for lead paragraphs.
+/// @type Number
+$lead-font-size: $global-font-size * 1.25 !default;
+
+/// Default line height for lead paragraphs.
+/// @type String
+$lead-lineheight: 1.6 !default;
+
+/// Default line height for subheaders.
+/// @type Number
+$subheader-lineheight: 1.4 !default;
+
+/// Default font color for subheaders.
+/// @type Color
+$subheader-color: $dark-gray !default;
+
+/// Default font weight for subheaders.
+/// @type String
+$subheader-font-weight: $global-weight-normal !default;
+
+/// Default top margin for subhheaders.
+/// @type Number
+$subheader-margin-top: 0.2rem !default;
+
+/// Default bottom margin for subheaders.
+/// @type Number
+$subheader-margin-bottom: 0.5rem !default;
+
+/// Default font size for statistic numbers.
+/// @type Number
+$stat-font-size: 2.5rem !default;
+
+@mixin foundation-typography-helpers {
+  // Use to create a subheading under a main header
+  // Make sure you pair the two elements in a <header> element, like this:
+  // <header>
+  //   <h1>Heading</h1>
+  //   <h2>Subheading</h2>
+  // </header>
+  .subheader {
+    margin-top: $subheader-margin-top;
+    margin-bottom: $subheader-margin-bottom;
+    font-weight: $subheader-font-weight;
+    line-height: $subheader-lineheight;
+    color: $subheader-color;
+  }
+
+  // Use to style an introductory lead, deck, blurb, etc.
+  .lead {
+    font-size: $lead-font-size;
+    line-height: $lead-lineheight;
+  }
+
+  // Use to style a large number to display a statistic
+  .stat {
+    font-size: $stat-font-size;
+    line-height: 1;
+
+    p + & {
+      margin-top: -1rem;
+    }
+  }
+
+  // Use to remove the bullets from an unordered list
+  .no-bullet {
+    margin-#{$global-left}: 0;
+    list-style: none;
+  }
+
+  .sub-title{
+    font-size: $sub-title-size;
+    color: #2c2c2c;
+    margin-bottom:5px;
+    display:block;
+
+  }
+
+  code {
+    padding: 0 4px;
+    color: #ce3820;
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+    border-radius:2px;
+  }
+
+
+  .v-align-top {
+    vertical-align:top;
+  }
+
+  .v-align-middle {
+    vertical-align:middle;
+  }
+
+  .v-align-bottom {
+    vertical-align:bottom;
+  }
+}
+
+// Text alignment classes
+@mixin foundation-text-alignment {
+  @each $size in $breakpoint-classes {
+    @include breakpoint($size) {
+      @each $align in (left, right, center, justify) {
+        @if $size != $-zf-zero-breakpoint {
+          .#{$size}-text-#{$align} {
+            text-align: $align;
+          }
+        }
+        @else {
+          .text-#{$align} {
+            text-align: $align;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin tracx-font-weights
+{
+  .font-weight-thin
+  {
+    font-weight: 200;
+  }
+
+  .font-weight-medium
+  {
+    font-weight: 400;
+  }
+  .font-weight-stronger
+  {
+    font-weight: 500;
+  }
+
+  .font-weight-stronger
+  {
+    font-weight: 500;
+  }
+
+  .font-weight-bold
+  {
+    font-weight: bold;
+  }
+}
+
+@mixin tracx-typography-customizations
+{
+  .underline
+  {
+    text-decoration: underline;
+  }
+  .cursor-pointer
+  {
+    cursor: pointer;
+  }
+}
+
+@mixin tracx-box-shadows
+{
+  .box-shadow
+  {
+    -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.25);
+  }
+}
+
+@mixin foundation-typography {
+  @include foundation-typography-base;
+  @include foundation-typography-helpers;
+  @include foundation-text-alignment;
+  @include tracx-font-weights;
+  @include tracx-typography-customizations;
+  @include tracx-box-shadows;
+}

@@ -1,0 +1,161 @@
+@mixin tracx_navigation{
+
+  .asideNav {
+    width: 200px;
+    margin-right: 3px;
+    float: left;
+    position:fixed;
+    background: $nav-bg;
+    z-index: 99;
+    color:#fff;
+    height: calc(100vh - 50px);
+    top: 50px;
+
+    & nav ul{
+      margin-left:0;
+    }
+
+    & nav ul li{
+      background-color: #2b2b2b;
+      cursor:pointer;
+      border-bottom: 1px solid #4d4d4d;
+      position:relative;
+
+      > a{
+        min-height: 50px;
+        padding:$nav-gatter 0 0 $nav-gatter;
+        display:block;
+      }
+
+      > a i{
+        color: #72a344;
+        font-size:20px;
+        margin-right:2px;
+        float:left;
+      }
+
+      > a span{
+        color: #b5bcbc;
+        font-size: 15px;
+        font-weight: bold;
+        display: inline-block;
+        padding: 2px 0 0 0;
+      }
+      &:hover > a span {
+        color:#fff;
+      }
+
+      &:hover > a i{
+        color: #547832;
+      }
+
+      > a span + i{
+        color:rgb(176,176,176);
+        float:right;
+        margin:3px $nav-gatter 0 0;
+        font-size:15px;
+        display:none;
+
+      }
+
+      &:hover > a span + i{
+        color:#fff;
+      }
+
+      & ul {
+        margin:0 0 .5rem $nav-list-side-margin;
+        display:none;
+      }
+
+      & ul li{
+        background:none;
+        border:none;
+        height: 22px;
+      }
+
+      & ul li a{
+        font-size: 13px;
+        font-weight: bold;
+        min-height:1px;
+        padding:0.25rem 0 0 0;
+        color:#b5bcbc;
+
+        &.nav-inner-active{
+          color:#fff;
+        }
+      }
+
+      & ul li a:hover{
+        color:#fff;
+      }
+
+    }//& nav ul li
+
+    & nav ul li.has-sub-menu{
+       & > a span + i{
+        display:block;
+      }
+    }
+
+    & nav ul li.nav-active{
+      background-color: #111111;
+
+      & > :before{
+        content:"";
+        width:3px;
+        position:absolute;
+        height:50px;
+        background:$nav-hover-color;
+        left:0;
+        top:0;
+      }
+
+      & > a i {
+        color: $nav-hover-color;
+      }
+
+    }//& nav ul li.nav-active
+  }
+
+  .side-nav-open{
+    width: $nav-collapse-size;
+
+
+    & nav ul li > a > span, & nav ul li > a span + i, & nav ul li.has-sub-menu > a span + i{
+      display:none;
+    }
+
+    & nav ul li{
+
+      border-bottom:none;
+
+      & > :before{
+        display:none;
+      }
+    }
+
+    & nav ul li ul{
+      position: absolute;
+      background: #2b2b2b;
+      top: 0;
+      left: 2px;
+      width: 200px;
+      min-height: $nav-collapse-size;
+      padding-left: 15px;
+      padding-bottom: 15px;
+    }
+
+    & nav ul li ul li:first-child{
+      display:block;
+    }
+
+    & nav ul li:hover{
+      & ul{
+        display:block;
+      }
+    }
+
+  }
+
+
+}

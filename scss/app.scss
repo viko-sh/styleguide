@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@import 'settings';
+@import 'base-style-guide';
+@import 'forms/forms';
+@import 'components/components';
+@import 'layout/layout';
+@import 'fonts/fonts';
+@import 'tracx-modal';
+@import 'typography/knockout-validation';
+@import 'layout/tracx-loaders';
+@import 'grid/flex';
+@import 'folder';
+@import 'dropdownMenu';
+
+@mixin tracx{
+  @include full-scope-global-styles;
+  .tr-sg{
+    &{
+      @include foundation-global-styles;
+      @include foundation-grid;
+      @include foundation-float-classes;
+      @include foundation-typography;
+      @include foundation-visibility-classes;
+      @include tracx-color-palette; // tracx colors
+      @include tracx-buttons;  // buttons
+      @include tracx-widgets; // nav-bar
+      @include tracx-layout; // layout for tracx - future? including navigation(sideNav) / panels
+      @include tracx-loaders; // gorilla loader / white screen / etc.
+      @include tracx-forms;
+      @include tracx-components;
+      @include customPosition;
+      @include tracx-modal;
+      @include knockout-validation;
+      @include tracx-icons-fonts-global-sizes;
+      @include tracx-flex-classes;
+
+      @include folders;
+      @include folder;
+      @include dropdown-menu;
+    }
+  }
+}
+
+@include tracx;

@@ -1,0 +1,79 @@
+/* The Modal (background) */
+/* Modal Content */
+/* The Close Button */
+
+@mixin tracx-modal {
+
+  .tracx-modal {
+    display: none;
+    z-index: 5002;
+    background-color: white;
+    border-radius: 2px;
+    max-height: 90%;
+    max-width: 90%;
+    margin: auto;
+    position: relative;
+  }
+
+  .tracx-modal-header
+  {
+    position: relative;
+    min-height: 50px;
+    padding: 10px;
+    i.tr-icon-close
+    {
+      z-index: 99;
+    }
+  }
+
+  .tracx-modal-content {
+    height: 100%;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  .tracx-modal-buttons {
+    top: 3px;
+    right: 4px;
+    position: relative;
+
+    & .button {
+      margin-right: 5px;
+      & :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .tracx-modal-footer {
+    height: 36px;
+  }
+
+}
+.tracx-modal-overlay-wrapper
+{
+  background: transparentize(#010101, .5) !important;
+  z-index: 99990;
+  display: flex;
+  -webkit-box-flex-direction: row;
+  -moz-box-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: fixed;
+}

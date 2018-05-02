@@ -1,0 +1,23 @@
+@mixin tracx-flex-classes {
+
+  .display-flex
+  {
+    display: flex;
+
+    &.justify-center
+    {
+      justify-content: center;
+    }
+    &.vertical-center
+    {
+      align-items: center;
+    }
+  }
+
+  .flex-self-center
+  {
+    align-self: center;
+  }
+
+
+}

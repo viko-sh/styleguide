@@ -1,0 +1,45 @@
+<div class="row column">
+    <h1>Icons</h1>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <input type="text" placeholder="search icons..." id="searchinput" data-bind="textInput: search">
+        <!--<input type="submit" class="button btn-info" value="Search">-->
+    </div>
+</div>
+<div class="row">
+    <div class="panel columns">
+        <p class="padding-top-20 padding-bottom-20">
+            <strong>
+            Classes to define sizes: icon-font-size-10, icon-font-size-12, icon-font-size-16, icon-font-size-22, icon-font-size-30, icon-font-size-36, icon-font-size-40, icon-font-size-60
+            </strong>
+        </p>
+        <ko.view-source params="sourceClass: 'iconsExampleSource1'"></ko.view-source>
+        <div class="iconsExampleSource1">
+            <!--##### WARNING ##### -->
+            <!--##### change class "tr-icon-check" ##### -->
+            <!--##### WARNING ##### -->
+            <i class="icon-font-size-10 lt-green-6 tr-icon-check"></i>
+            <i class="icon-font-size-16 lt-green-6 tr-icon-check"></i>
+            <i class="icon-font-size-22 lt-green-6 tr-icon-check"></i>
+            <i class="icon-font-size-30 lt-green-6 tr-icon-check"></i>
+            <i class="icon-font-size-36 lt-green-6 tr-icon-check"></i>
+            <i class="icon-font-size-40 lt-green-6 tr-icon-check"></i>
+            <i class="icon-font-size-60 lt-green-6 tr-icon-check"></i>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel columns">
+        <div class="well body body-fool">
+            <ul class="glyphs css-mapping" data-bind="foreach: filteredCollection">
+                <li data-bind="attr:{'class': 'item-'+$data.name}">
+                    <i data-bind="attr: {'class': 'icon-font-size-22 float-left tr-icon-'+$data.name}"></i>
+                    <input type="text" readonly="readonly" data-bind="attr: {'value': 'tr-icon-' + $data.name}">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+

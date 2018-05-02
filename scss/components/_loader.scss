@@ -1,0 +1,15 @@
+@mixin loading-gorilla
+{
+  .loadingGorilla
+  {
+    background: white url(/img/loading_big.gif) no-repeat scroll 50% 25%;
+    top:0;
+    left:0;
+    opacity: 0.75;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    z-index: 100;
+    background-image: url("/img/gorillaLoader.gif");
+  }
+}

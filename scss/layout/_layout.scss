@@ -1,0 +1,64 @@
+@import 'navigation';
+@import '../settings';
+
+@mixin tracx-layout {
+
+  .mainSection{
+    height:100vh;
+    position: relative;
+    top: 36px;
+    min-height: calc(100% - 50px);
+  }
+
+  .mainContent{
+    overflow: hidden;
+    padding:30px 30px 50px 30px;
+    margin:0 0 0 200px;
+    background:#f7f7f7;
+  }
+
+  .side-nav-open + .mainContent{
+    margin:0 0 0 $nav-collapse-size;
+  }
+
+  .example .row .column, .example .row .columns {
+    background: #e4e4e4;
+    border: 1px solid #ccc;
+  }
+
+  .example .row {
+    margin-bottom: 20px;
+  }
+
+  .example .row, .example .row .column, .example .row .columns {
+    background: #f4f4f4;
+    height: 60px;
+    line-height: 60px;
+  }
+
+  .panel{
+    // background:#000; // removed because panel should not have default color background
+    //padding:0 15px;
+  }
+
+  .body{
+    padding: 15px 14px;
+
+    &.body-fool{
+      width: 100%;
+    }
+  }
+
+  .as-table{
+    display:table;
+
+    &:before, &:after{
+      content:"";
+      clear:both;
+    }
+  }
+
+  @include tracx_navigation;
+
+}
+
